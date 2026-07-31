@@ -5,8 +5,7 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="container footer-grid">
     <div class="col brand-col">
-      <img src="/brand/tts-vertical.svg" alt="Tufted Tales Studio" class="footer-logo" />
-      <p class="tagline script">Where Tuft Happens</p>
+      <img src="/brand/tts-light.svg" alt="Tufted Tales Studio" class="footer-logo" />
       <p class="body">
         A hands-on rug tufting studio in Columbus, Georgia.
         Grand opening September 2026.
@@ -39,11 +38,11 @@ const year = new Date().getFullYear();
 
     <div class="col">
       <h4>Follow</h4>
-      <p>@TuftedTalesColumbus</p>
       <ul class="social">
-        <li><a href="https://instagram.com/TuftedTalesColumbus" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://tiktok.com/@TuftedTalesColumbus" target="_blank" rel="noopener">TikTok</a></li>
-        <li><a href="https://facebook.com/TuftedTalesColumbus" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/tuftedtalescolumbus" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@tuftedtalescolumbus" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://www.facebook.com/tuftedtalescolumbus" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.youtube.com/@tuftedtalescolumbus" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
       <a href="/waitlist" class="btn btn-primary" style="margin-top: 14px;">Join the Waitlist</a>
     </div>
@@ -52,7 +51,7 @@ const year = new Date().getFullYear();
   <div class="container legal">
     <span>&copy; {year} Tufted Tales Studio. All rights reserved.</span>
     <span class="dot">✱</span>
-    <span>Made in Columbus, Georgia</span>
+    <span>Website crafted by <a href="https://www.msquaredmarketing.com" target="_blank" rel="noopener">M Squared Marketing</a></span>
   </div>
 </footer>
 
@@ -65,9 +64,21 @@ const year = new Date().getFullYear();
   }
   .footer a {
     color: var(--cream);
+    text-decoration: underline;
+    text-decoration-color: rgba(238, 214, 191, 0.35);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
   }
   .footer a:hover {
     color: var(--sage);
+    text-decoration-color: var(--sage);
+  }
+  .footer .btn {
+    text-decoration: none;
+  }
+  .footer .btn:hover {
+    text-decoration: none;
   }
   .footer-grid {
     display: grid;
@@ -77,17 +88,11 @@ const year = new Date().getFullYear();
     border-bottom: 1px solid rgba(238, 214, 191, 0.15);
   }
   .footer-logo {
-    height: 96px;
     width: auto;
-    margin-bottom: 16px;
-    filter: brightness(0) invert(1) sepia(0.4) saturate(2) hue-rotate(-10deg);
-    opacity: 0.9;
-  }
-  .tagline {
-    font-size: 1.8rem;
-    color: var(--sage);
-    margin: 0 0 12px;
-    line-height: 1;
+    max-width: 240px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
   }
   .body {
     font-size: 0.92rem;

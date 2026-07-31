@@ -6,8 +6,9 @@ import PageHero from "../components/PageHero.astro";
 <Layout title="Private Events · Tufted Tales Studio" description="Book Tufted Tales Studio for birthday parties, girls' nights, corporate team building, and celebrations. Starting at $600 for the studio + $65 per person.">
   <PageHero
     eyebrow="Private Events"
-    script="Your people."
-    title="Your rugs. Your night."
+    title="Your people. Your rugs."
+    script="Your night."
+    scriptLast
     subtitle="Book the whole studio for birthdays, girls' nights, date nights, corporate team-building, or just a really good excuse to hang out."
   />
 
@@ -33,47 +34,20 @@ import PageHero from "../components/PageHero.astro";
     <p class="fineprint">Group discounts available for parties of 10+ · Minimum age: 14 · Ask about travel to your venue</p>
   </section>
 
-  <!-- PERFECT FOR -->
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Perfect For</span>
-        <h2>Whatever you're celebrating.</h2>
-      </div>
-      <div class="tag-grid">
-        {[
-          "Birthday Parties",
-          "Bridal &amp; Bachelorette",
-          "Girls' Night Out",
-          "Date Nights",
-          "Family Fun",
-          "Corporate Team Building",
-          "College Groups",
-          "Baby Showers",
-          "Retirement Parties",
-          "Anniversaries",
-          "Milestone Celebrations",
-          "Just Because",
-        ].map((label) => (
-          <span class="event-tag" set:html={label} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- INQUIRY FORM -->
+  <!-- INQUIRY FORM + PERFECT FOR SIDEBAR -->
   <section class="form-section" id="inquire">
-    <div class="container form-shell">
-      <div class="section-head">
-        <span class="eyebrow">Private Event Inquiry</span>
-        <h2>Tell us about your event.</h2>
-        <p class="lede">
-          We'll follow up within 1 business day with availability, a custom quote,
-          and next steps.
-        </p>
-      </div>
+    <div class="container form-grid">
+      <div class="form-col">
+        <div class="section-head">
+          <span class="eyebrow">Private Event Inquiry</span>
+          <h2>Tell us about your event.</h2>
+          <p class="lede">
+            We'll follow up within 1 business day with availability, a custom quote,
+            and next steps.
+          </p>
+        </div>
 
-      <form
+        <form
         name="private-events"
         method="POST"
         data-netlify="true"
@@ -181,6 +155,7 @@ import PageHero from "../components/PageHero.astro";
             <option>Instagram</option>
             <option>TikTok</option>
             <option>Facebook</option>
+            <option>YouTube</option>
             <option>Google search</option>
             <option>A friend</option>
             <option>Drove by the studio</option>
@@ -190,6 +165,29 @@ import PageHero from "../components/PageHero.astro";
 
         <button type="submit" class="btn btn-primary form-submit">Send Inquiry</button>
       </form>
+      </div>
+
+      <aside class="perfect-for-col">
+        <div class="perfect-for-card">
+          <span class="eyebrow">Perfect For</span>
+          <h3>Whatever you're celebrating.</h3>
+          <ul class="pf-list">
+            <li>Birthday Parties</li>
+            <li>Bridal &amp; Bachelorette</li>
+            <li>Girls' Night Out</li>
+            <li>Date Nights</li>
+            <li>Family Fun</li>
+            <li>Corporate Team Building</li>
+            <li>College Groups</li>
+            <li>Baby Showers</li>
+            <li>Retirement Parties</li>
+            <li>Anniversaries</li>
+            <li>Milestone Celebrations</li>
+            <li>Just Because</li>
+          </ul>
+          <p class="pf-footer">Don't see yours? Tell us in the form — we've hosted just about everything.</p>
+        </div>
+      </aside>
     </div>
   </section>
 </Layout>
@@ -234,27 +232,18 @@ import PageHero from "../components/PageHero.astro";
   .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
   .lede { font-size: 1.05rem; color: var(--ink-soft); }
 
-  .tag-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .event-tag {
-    padding: 12px 22px;
-    background: var(--cream);
-    color: var(--teal-ink);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-block);
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-  }
-
-  /* FORM */
+  /* FORM + PERFECT FOR SIDEBAR */
   .form-section { background: var(--cream); }
-  .form-shell {
-    max-width: 780px;
-    margin: 0 auto;
+  .form-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
   }
+  @media (max-width: 900px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+  .form-col { min-width: 0; }
   .inquiry-form {
     background: #fff;
     padding: clamp(28px, 4vw, 44px);
@@ -263,4 +252,57 @@ import PageHero from "../components/PageHero.astro";
   }
   .form-submit { margin-top: 12px; }
   .visually-hidden { position: absolute; left: -9999px; }
+
+  .perfect-for-col { position: sticky; top: 100px; }
+  @media (max-width: 900px) {
+    .perfect-for-col { position: static; }
+  }
+  .perfect-for-card {
+    background: var(--teal);
+    color: var(--cream);
+    padding: clamp(28px, 3vw, 36px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .perfect-for-card .eyebrow {
+    color: var(--sage);
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .perfect-for-card h3 {
+    color: var(--cream);
+    font-size: 1.4rem;
+    line-height: 1.15;
+    margin: 0 0 20px;
+  }
+  .pf-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pf-list li {
+    padding-left: 22px;
+    position: relative;
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+  .pf-list li::before {
+    content: "✱";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--terracotta);
+    font-weight: 700;
+  }
+  .pf-footer {
+    margin: 20px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(238, 214, 191, 0.15);
+    font-size: 0.85rem;
+    opacity: 0.85;
+    font-style: italic;
+  }
 </style>

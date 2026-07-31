@@ -6,8 +6,8 @@ import PageHero from "../components/PageHero.astro";
 <Layout title="Workshops · Tufted Tales Studio" description="Book a rug tufting workshop in Columbus, GA. Signature and custom workshops from $75. All materials included.">
   <PageHero
     eyebrow="Workshops"
-    script="Create."
-    title="Connect. Leave with a story."
+    script="Create & Connect"
+    title="Leave with a story."
     subtitle="Every workshop is more than a class — it's a 2.5-hour hands-on creative experience. Choose your design, your yarn, your colors. We handle the rest."
   />
 
@@ -90,9 +90,7 @@ import PageHero from "../components/PageHero.astro";
       </div>
 
       <p class="note">
-        Not sure if your idea will work? Email us at
-        <a href="mailto:hello@tuftedtalesstudio.com">hello@tuftedtalesstudio.com</a>
-        and we'll take a look before you book.
+        Not sure if your idea will work? Email us at <a href="mailto:hello@tuftedtalesstudio.com">hello@tuftedtalesstudio.com</a> and we'll take a look before you book.
       </p>
     </div>
   </section>
@@ -109,16 +107,17 @@ import PageHero from "../components/PageHero.astro";
         </p>
       </div>
 
-      <!-- TODO: Replace with real Acuity embed URL from client. -->
-      <!-- Example: <iframe src="https://app.acuityscheduling.com/schedule.php?owner=XXXXXXX" title="Schedule Appointment" width="100%" height="800" frameborder="0"></iframe> -->
-      <div class="acuity-placeholder">
-        <div class="acuity-inner">
-          <span class="eyebrow">Booking Widget</span>
-          <h3>Acuity embed coming soon</h3>
-          <p>Booking opens with our September 2026 launch.</p>
-          <a href="/waitlist" class="btn btn-primary">Join the Waitlist</a>
-        </div>
-      </div>
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=32726374&ref=embedded_csp"
+        title="Schedule Appointment"
+        width="100%"
+        height="800"
+        frameborder="0"
+        allow="payment"
+        class="acuity-embed"
+        loading="lazy"
+      ></iframe>
+      <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript" is:inline></script>
     </div>
   </section>
 
@@ -234,31 +233,15 @@ import PageHero from "../components/PageHero.astro";
 
   /* BOOKING */
   .booking { background: var(--paper); }
-  .acuity-placeholder {
-    aspect-ratio: 3 / 2;
-    max-height: 600px;
-    background: repeating-linear-gradient(
-      135deg,
-      rgba(6, 73, 70, 0.04),
-      rgba(6, 73, 70, 0.04) 20px,
-      rgba(6, 73, 70, 0.08) 20px,
-      rgba(6, 73, 70, 0.08) 40px
-    );
-    border: 2px dashed rgba(6, 73, 70, 0.25);
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .acuity-inner {
-    text-align: center;
-    background: var(--cream);
-    padding: 40px;
+  .acuity-embed {
+    display: block;
+    width: 100%;
+    border: 0;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
-    max-width: 420px;
+    background: #fff;
+    min-height: 800px;
   }
-  .acuity-inner h3 { margin: 8px 0 14px; font-size: 1.4rem; }
 
   /* EXPECT */
   .timeline {

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Accent from "../components/Accent.astro";
 ---
 
 <Layout>
@@ -7,17 +8,16 @@ import Layout from "../layouts/Layout.astro";
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Rug Tufting Studio · Columbus, GA</span>
-        <h1>
-          <span class="script hero-script">Tufted tales</span>
-          <span class="block hero-block">where tuft happens</span>
+        <h1 class="hero-logo">
+          <img src="/brand/tts-sticker.svg" alt="Tufted Tales Studio — Where Tuft Happens" />
         </h1>
+        <span class="eyebrow hero-tagline">Rug Tufting Studio · Columbus, GA</span>
         <p class="lede">
           A hands-on rug tufting studio where you slow down, get creative,
           and leave with a one-of-a-kind piece that tells your story.
         </p>
         <div class="hero-ctas">
-          <a href="/workshops" class="btn btn-primary">Book a Workshop · $75+</a>
+          <a href="/workshops#book" class="btn btn-primary">Book a Workshop · $75+</a>
           <a href="/private-events" class="btn btn-outline">Host a Private Party</a>
         </div>
         <ul class="hero-bullets">
@@ -28,12 +28,18 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="hero-video">
-        <!-- TODO: swap placeholder for Taiylor's hero video -->
-        <div class="video-placeholder" aria-label="Hero video placeholder">
-          <div class="video-play">▶</div>
-          <div class="video-caption">Hero video coming soon</div>
-        </div>
-        <img src="/brand/tts-sticker.svg" alt="" class="hero-sticker" aria-hidden="true" />
+        <video
+          class="hero-video-el"
+          src="/video/hero.mp4"
+          poster="/video/hero-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Rug tufting at Tufted Tales Studio"
+        ></video>
+        <Accent color="olive" size="100px" spin speed="22s" class="hero-sticker" />
       </div>
     </div>
   </section>
@@ -87,7 +93,7 @@ import Layout from "../layouts/Layout.astro";
             <li>All materials + premium yarn included</li>
             <li>Professionally finished, ready in 24–48 hrs</li>
           </ul>
-          <a href="/workshops" class="btn btn-teal">See Available Dates</a>
+          <a href="/workshops#book" class="btn btn-ghost">See Available Dates</a>
         </article>
 
         <article class="workshop-card cream">
@@ -100,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
             <li>All materials + premium yarn included</li>
             <li>Professionally finished, ready in 24–48 hrs</li>
           </ul>
-          <a href="/workshops" class="btn btn-primary">See Available Dates</a>
+          <a href="/workshops#book" class="btn btn-primary">See Available Dates</a>
         </article>
       </div>
     </div>
@@ -110,9 +116,7 @@ import Layout from "../layouts/Layout.astro";
   <section class="about-short">
     <div class="container about-grid">
       <div class="about-visual">
-        <div class="visual-placeholder">
-          <span class="eyebrow">Photo · Studio interior</span>
-        </div>
+        <img src="/photos/founder-portrait.jpg" alt="Taiylor Williams, founder of Tufted Tales Studio" class="founder-photo" />
         <img src="/brand/tts-badge.svg" alt="" class="badge-float" aria-hidden="true" />
       </div>
       <div class="about-copy">
@@ -125,8 +129,8 @@ import Layout from "../layouts/Layout.astro";
           personal — something that carries a story of its own.
         </p>
         <p>
-          <em>"Tufted"</em> speaks to the craft — the texture, the yarn, the making.
-          <em>"Tales"</em> reflects the meaning behind each piece. No two rugs are
+          "Tufted" speaks to the craft — the texture, the yarn, the making.
+          "Tales" reflects the meaning behind each piece. No two rugs are
           exactly alike, and no two stories are either.
         </p>
         <a href="/about" class="btn btn-outline">Read Our Story</a>
@@ -142,10 +146,17 @@ import Layout from "../layouts/Layout.astro";
         <h2>Made here, loved forever.</h2>
       </div>
       <div class="gallery-strip">
-        {[1,2,3,4,5,6].map((i) => (
-          <div class={`gal-item gal-${i}`}>
-            <span class="gal-label">Rug 0{i}</span>
-          </div>
+        {[
+          { src: "/photos/tufting-cherry-frame.jpg", alt: "Cherry rug in progress on the tufting frame" },
+          { src: "/photos/rug-anime-face.jpg", alt: "Custom anime-style face rug" },
+          { src: "/photos/IMG_2714.jpg", alt: "Workshop customer with finished 'PARIS' tufted piece" },
+          { src: "/photos/rug-playstation.jpg", alt: "Custom PlayStation-inspired rug" },
+          { src: "/photos/tufting-hello-kitty.jpg", alt: "Hello Kitty rug in progress" },
+          { src: "/photos/IMG_0402.jpg", alt: "Workshop customer with finished 'NAKED' tufted piece" },
+        ].map((p) => (
+          <a href="/gallery" class="gal-item">
+            <img src={p.src} alt={p.alt} loading="lazy" />
+          </a>
         ))}
       </div>
       <div class="center-cta">
@@ -157,7 +168,7 @@ import Layout from "../layouts/Layout.astro";
   <!-- WAITLIST BAND -->
   <section class="waitlist-band">
     <div class="container waitlist-inner">
-      <img src="/brand/tts-sticker.svg" alt="" class="wl-sticker left" aria-hidden="true" />
+      <Accent color="olive" size="140px" spin speed="30s" class="wl-accent left" />
       <div class="waitlist-copy">
         <span class="eyebrow" style="color: var(--sage);">Opening September 2026</span>
         <h2 class="on-teal">
@@ -169,7 +180,7 @@ import Layout from "../layouts/Layout.astro";
         </p>
         <a href="/waitlist" class="btn btn-primary">Join the Waitlist</a>
       </div>
-      <img src="/brand/tts-sticker.svg" alt="" class="wl-sticker right" aria-hidden="true" />
+      <Accent color="olive" size="140px" spin reverse speed="30s" class="wl-accent right" />
     </div>
   </section>
 </Layout>
@@ -190,25 +201,20 @@ import Layout from "../layouts/Layout.astro";
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
   }
-  .hero-copy .eyebrow {
-    margin-bottom: 18px;
+  .hero-tagline {
     display: inline-block;
+    margin-bottom: 24px;
   }
-  .hero-script {
-    font-size: clamp(3.6rem, 9vw, 6.6rem);
-    color: var(--teal);
+  .hero-logo {
+    margin: 0 0 24px;
+    line-height: 0;
+  }
+  .hero-logo img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
     display: block;
-    line-height: 0.9;
-    margin-bottom: 4px;
   }
-  .hero-block {
-    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-    color: var(--terracotta);
-    letter-spacing: 0.3em;
-    display: block;
-    margin-left: 6px;
-  }
-  h1 { margin-bottom: 24px; }
   .lede {
     font-size: clamp(1.05rem, 1.4vw, 1.2rem);
     color: var(--ink-soft);
@@ -245,65 +251,26 @@ import Layout from "../layouts/Layout.astro";
   .hero-video {
     position: relative;
   }
-  .video-placeholder {
+  .hero-video-el {
+    width: 100%;
     aspect-ratio: 4 / 5;
+    object-fit: cover;
     border-radius: var(--radius-lg);
-    background:
-      linear-gradient(135deg, var(--teal), var(--teal-ink));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--cream);
-    gap: 16px;
+    background: var(--teal-ink);
     box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
+    display: block;
   }
-  .video-placeholder::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(178,178,103,0.3), transparent 40%),
-      radial-gradient(circle at 70% 70%, rgba(176,71,37,0.25), transparent 40%);
-  }
-  .video-play {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: var(--cream);
-    color: var(--teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    padding-left: 6px;
-    z-index: 1;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  }
-  .video-caption {
-    font-family: var(--font-block);
-    font-size: 0.8rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    opacity: 0.8;
-    z-index: 1;
-  }
-  .hero-sticker {
-    position: absolute;
+  :global(.hero-sticker) {
+    position: absolute !important;
     top: -30px;
     right: -30px;
-    width: 100px;
-    height: 100px;
-    transform: rotate(15deg);
     z-index: 2;
   }
 
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; }
     .hero-video { max-width: 480px; margin: 0 auto; }
-    .hero-sticker { width: 70px; height: 70px; top: -20px; right: -10px; }
+    :global(.hero-sticker) { width: 70px !important; height: 70px !important; top: -20px; right: -10px; }
   }
 
   /* ---------- ANSWER STRIP ---------- */
@@ -353,6 +320,11 @@ import Layout from "../layouts/Layout.astro";
     margin-right: auto;
     text-align: center;
   }
+  .accent-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
   .section-head h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.05;
@@ -363,6 +335,9 @@ import Layout from "../layouts/Layout.astro";
     font-style: normal;
     color: var(--terracotta);
     font-weight: 400;
+    font-size: 1.5em;
+    line-height: 0.8;
+    vertical-align: -0.05em;
   }
   .section-lede {
     font-size: 1.05rem;
@@ -456,18 +431,14 @@ import Layout from "../layouts/Layout.astro";
     align-items: center;
   }
   .about-visual { position: relative; }
-  .visual-placeholder {
+  .founder-photo {
+    width: 100%;
     aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%;
     border-radius: var(--radius-lg);
-    background:
-      linear-gradient(135deg, var(--sage), var(--olive-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: var(--shadow-lg);
-  }
-  .visual-placeholder .eyebrow {
-    color: var(--cream);
+    display: block;
   }
   .badge-float {
     position: absolute;
@@ -512,23 +483,21 @@ import Layout from "../layouts/Layout.astro";
   .gal-item {
     aspect-ratio: 1 / 1;
     border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-block);
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    opacity: 0.9;
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    background: var(--cream);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .gal-item:hover { transform: translateY(-4px); }
-  .gal-1 { background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep)); color: var(--cream); }
-  .gal-2 { background: linear-gradient(135deg, var(--teal), var(--teal-ink)); color: var(--cream); }
-  .gal-3 { background: linear-gradient(135deg, var(--sage), var(--olive)); color: var(--teal-ink); }
-  .gal-4 { background: linear-gradient(135deg, var(--cream), var(--cream-soft)); color: var(--teal); }
-  .gal-5 { background: linear-gradient(135deg, var(--olive-dark), var(--olive)); color: var(--cream); }
-  .gal-6 { background: linear-gradient(135deg, var(--terracotta), var(--olive)); color: var(--cream); }
+  .gal-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .gal-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
   .center-cta { text-align: center; }
 
   @media (max-width: 720px) {
@@ -565,6 +534,8 @@ import Layout from "../layouts/Layout.astro";
   .waitlist-copy .script {
     font-size: clamp(3rem, 6vw, 4.4rem);
     color: var(--cream);
+    word-spacing: -0.12em;
+    letter-spacing: -0.01em;
   }
   .waitlist-copy p {
     font-size: 1.1rem;
@@ -572,15 +543,11 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 auto 28px;
     max-width: 46ch;
   }
-  .wl-sticker {
-    width: 120px;
-    height: 120px;
+  :global(.wl-accent) {
     opacity: 0.85;
     flex-shrink: 0;
   }
-  .wl-sticker.left { transform: rotate(-12deg); }
-  .wl-sticker.right { transform: rotate(12deg); }
   @media (max-width: 720px) {
-    .wl-sticker { display: none; }
+    :global(.wl-accent) { display: none; }
   }
 </style>

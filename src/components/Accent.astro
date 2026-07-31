@@ -1,0 +1,53 @@
+---
+interface Props {
+  color?: "terracotta" | "olive" | "cream";
+  size?: string;
+  spin?: boolean;
+  reverse?: boolean;
+  speed?: string;
+  class?: string;
+}
+const {
+  color = "terracotta",
+  size = "56px",
+  spin = false,
+  reverse = false,
+  speed = "24s",
+  class: cls = "",
+} = Astro.props;
+
+const src = `/brand/accent-${color}.svg`;
+---
+
+<img
+  src={src}
+  alt=""
+  aria-hidden="true"
+  class:list={["accent", { spin, reverse }, cls]}
+  style={`--size: ${size}; --spin-speed: ${speed};`}
+/>
+
+<style>
+  .accent {
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
+  .accent.spin {
+    animation: accent-spin var(--spin-speed) linear infinite;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .accent.spin.reverse {
+    animation-direction: reverse;
+  }
+  @keyframes accent-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .accent.spin { animation: none; }
+  }
+</style>

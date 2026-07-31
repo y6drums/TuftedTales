@@ -30,9 +30,7 @@ import PageHero from "../components/PageHero.astro";
         </p>
       </div>
       <div class="visual">
-        <div class="visual-placeholder">
-          <span class="eyebrow">Photo · Studio interior</span>
-        </div>
+        <img src="/photos/studio-session-full.jpg" alt="A tufting session in progress at Tufted Tales Studio" class="about-photo" />
       </div>
     </div>
   </section>
@@ -61,9 +59,7 @@ import PageHero from "../components/PageHero.astro";
   <section class="founder">
     <div class="container founder-grid">
       <div class="visual">
-        <div class="visual-placeholder square">
-          <span class="eyebrow">Photo · Taiylor</span>
-        </div>
+        <img src="/photos/founder-portrait.jpg" alt="Taiylor Williams, founder of Tufted Tales Studio" class="about-photo square" />
       </div>
       <div class="founder-copy">
         <span class="eyebrow">Meet the Founder</span>
@@ -120,17 +116,18 @@ import PageHero from "../components/PageHero.astro";
     color: var(--ink-soft);
     margin: 0 0 16px;
   }
-  .visual-placeholder {
+  .about-photo {
+    width: 100%;
     aspect-ratio: 4 / 5;
+    object-fit: cover;
     border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, var(--sage), var(--olive-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: var(--shadow-lg);
+    display: block;
   }
-  .visual-placeholder.square { aspect-ratio: 1 / 1; background: linear-gradient(135deg, var(--terracotta), var(--olive-dark)); }
-  .visual-placeholder .eyebrow { color: var(--cream); }
+  .about-photo.square {
+    aspect-ratio: 1 / 1;
+    object-position: center top;
+  }
 
   .name-section {
     background: var(--cream);

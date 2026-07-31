@@ -4,18 +4,22 @@ interface Props {
   title: string;
   script?: string;
   subtitle?: string;
+  subtitleHtml?: string;
+  scriptLast?: boolean;
 }
-const { eyebrow, title, script, subtitle } = Astro.props;
+const { eyebrow, title, script, subtitle, subtitleHtml, scriptLast = false } = Astro.props;
 ---
 
 <section class="page-hero">
   <div class="container">
     {eyebrow && <span class="eyebrow">{eyebrow}</span>}
     <h1>
-      {script && <span class="script s">{script}</span>}
+      {!scriptLast && script && <span class="script s">{script}</span>}
       <span class="t">{title}</span>
+      {scriptLast && script && <span class="script s">{script}</span>}
     </h1>
-    {subtitle && <p class="sub">{subtitle}</p>}
+    {subtitleHtml && <p class="sub" set:html={subtitleHtml} />}
+    {!subtitleHtml && subtitle && <p class="sub">{subtitle}</p>}
   </div>
 </section>
 
