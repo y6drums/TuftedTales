@@ -22,7 +22,8 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/brand/tts-badge.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -39,5 +40,70 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Progressive-enhancement form handler.
+      // Hijacks any <form data-tts-form> and POSTs to its action, showing inline success/error.
+      document.querySelectorAll<HTMLFormElement>("form[data-tts-form]").forEach((form) => {
+        const submit = form.querySelector<HTMLButtonElement>("button[type='submit']");
+        const originalSubmitText = submit?.textContent ?? "";
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (!submit) return;
+
+          const status = ensureStatusEl(form);
+          status.className = "tts-form-status tts-form-status--pending";
+          status.textContent = "Sending…";
+          submit.disabled = true;
+          submit.textContent = "Sending…";
+
+          try {
+            const res = await fetch(form.action || "/api/submit", {
+              method: form.method || "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" },
+            });
+            const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+
+            if (res.ok && data.ok) {
+              showSuccess(form);
+              return;
+            }
+            throw new Error(data.error || "Something went wrong. Please try again.");
+          } catch (err) {
+            status.className = "tts-form-status tts-form-status--error";
+            status.textContent = (err as Error).message || "Something went wrong. Please try again.";
+            submit.disabled = false;
+            submit.textContent = originalSubmitText;
+          }
+        });
+      });
+
+      function ensureStatusEl(form: HTMLFormElement): HTMLElement {
+        let el = form.querySelector<HTMLElement>(".tts-form-status");
+        if (!el) {
+          el = document.createElement("p");
+          el.className = "tts-form-status";
+          form.appendChild(el);
+        }
+        return el;
+      }
+
+      function showSuccess(form: HTMLFormElement) {
+        const successMessage = form.dataset.successMessage || "Thanks! We got your message and will be in touch soon.";
+        const successTitle = form.dataset.successTitle || "You're in!";
+        form.innerHTML = `
+          <div class="tts-form-success">
+            <div class="tts-form-success__title">${escapeHtml(successTitle)}</div>
+            <p class="tts-form-success__body">${escapeHtml(successMessage)}</p>
+          </div>
+        `;
+      }
+
+      function escapeHtml(v: string): string {
+        return v.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c] as string));
+      }
+    </script>
   </body>
 </html>

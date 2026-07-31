@@ -26,13 +26,14 @@ import Layout from "../layouts/Layout.astro";
         <form
           name="waitlist"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="/api/submit"
+          data-tts-form
+          data-success-title="You're on the list!"
+          data-success-message="We'll be in touch as we get closer to opening. Thanks for being here."
           class="wl-form"
-          action="/waitlist?ok=1"
         >
           <input type="hidden" name="form-name" value="waitlist" />
-          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
           <div class="form-field">
             <label for="name">Your name *</label>
@@ -186,18 +187,3 @@ import Layout from "../layouts/Layout.astro";
   .visually-hidden { position: absolute; left: -9999px; }
 </style>
 
-<!-- Success message shown when redirected here after form submit -->
-<script>
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("ok") === "1") {
-    const form = document.querySelector<HTMLFormElement>(".wl-form");
-    if (form) {
-      form.innerHTML = `
-        <div style="text-align:center; padding: 20px 0;">
-          <div style="font-family: var(--font-display); font-size: 3rem; color: var(--teal); line-height: 1; margin-bottom: 12px;">You're on the list!</div>
-          <p style="color: var(--ink-soft); margin: 0;">We'll be in touch as we get closer to opening. Thanks for being here.</p>
-        </div>
-      `;
-    }
-  }
-</script>

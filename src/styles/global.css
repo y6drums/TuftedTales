@@ -305,3 +305,43 @@ textarea {
   color: var(--muted);
   margin-top: 6px;
 }
+
+.tts-form-status {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.tts-form-status--pending {
+  background: rgba(6, 73, 70, 0.08);
+  color: var(--teal-ink);
+}
+.tts-form-status--error {
+  background: rgba(176, 71, 37, 0.12);
+  color: var(--terracotta-deep);
+  border-left: 4px solid var(--terracotta);
+}
+
+.tts-form-success {
+  text-align: center;
+  padding: 32px 8px;
+}
+.tts-form-success__title {
+  font-family: var(--font-display);
+  color: var(--teal);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.tts-form-success__body {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 1rem;
+}
+
+button[type="submit"][disabled] {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}

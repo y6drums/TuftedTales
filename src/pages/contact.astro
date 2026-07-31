@@ -46,12 +46,14 @@ import PageHero from "../components/PageHero.astro";
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="/api/submit"
+          data-tts-form
+          data-success-title="Message sent!"
+          data-success-message="Thanks for reaching out — we'll be in touch shortly."
           class="inquiry-form"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
           <div class="form-row">
             <div class="form-field">

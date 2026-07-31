@@ -50,14 +50,16 @@ import PageHero from "../components/PageHero.astro";
         <form
         name="private-events"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
+        action="/api/submit"
+        data-tts-form
+        data-success-title="Inquiry sent!"
+        data-success-message="Thanks — we'll follow up within 1 business day with availability, a custom quote, and next steps."
         enctype="multipart/form-data"
         class="inquiry-form"
       >
         <input type="hidden" name="form-name" value="private-events" />
         <p class="visually-hidden">
-          <label>Don't fill this out: <input name="bot-field" /></label>
+          <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
         </p>
 
         <div class="form-row">
