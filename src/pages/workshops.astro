@@ -1,0 +1,293 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<Layout title="Workshops · Tufted Tales Studio" description="Book a rug tufting workshop in Columbus, GA. Signature and custom workshops from $75. All materials included.">
+  <PageHero
+    eyebrow="Workshops"
+    script="Create."
+    title="Connect. Leave with a story."
+    subtitle="Every workshop is more than a class — it's a 2.5-hour hands-on creative experience. Choose your design, your yarn, your colors. We handle the rest."
+  />
+
+  <!-- WORKSHOP CARDS -->
+  <section>
+    <div class="container">
+      <div class="grid two">
+        <article class="workshop-card teal">
+          <span class="chip">Beginner Friendly</span>
+          <h2>Signature Workshop</h2>
+          <p class="price">$75 <span>per person</span></p>
+          <p class="desc">Pick a design from our pre-designed pattern library. Perfect for first-timers who want a stress-free, guided experience.</p>
+          <ul class="feat">
+            <li>2.5 hours of instructor-led tufting</li>
+            <li>Curated pattern library (organized by size &amp; theme)</li>
+            <li>All materials, tools, and premium yarn included</li>
+            <li>20+ yarn colors to choose from</li>
+            <li>Professionally trimmed, glued, and backed</li>
+            <li>Ready for pickup in 24–48 hours</li>
+          </ul>
+          <div class="cta-row">
+            <a href="#book" class="btn btn-primary">Book This Workshop</a>
+          </div>
+        </article>
+
+        <article class="workshop-card cream">
+          <span class="chip terra">Custom Design</span>
+          <h2>Custom Workshop</h2>
+          <p class="price">$85 <span>per person</span></p>
+          <p class="desc">Bring your own artwork or design. Great for logos, favorite characters, meaningful imagery, or that idea you can't stop thinking about.</p>
+          <ul class="feat">
+            <li>2.5 hours + custom-design pre-consultation</li>
+            <li>Upload your artwork with your booking</li>
+            <li>All materials, tools, and premium yarn included</li>
+            <li>20+ yarn colors to choose from</li>
+            <li>Professionally trimmed, glued, and backed</li>
+            <li>Ready for pickup in 24–48 hours</li>
+          </ul>
+          <div class="cta-row">
+            <a href="#book" class="btn btn-primary">Book This Workshop</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN GUIDELINES -->
+  <section class="guidelines">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Custom Design Guidelines</span>
+        <h2>Great tufted designs share a look.</h2>
+        <p class="lede">
+          Rugs work best with bold shapes, clean lines, and a limited color palette.
+          Use these guidelines to keep your custom design tuftable.
+        </p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule ok">
+          <div class="rule-badge">✓ Works Great</div>
+          <ul>
+            <li>Bold, chunky shapes</li>
+            <li>Cartoon or icon-style artwork</li>
+            <li>Logos and lettering</li>
+            <li>Limited palette (3–8 colors)</li>
+            <li>Simple, high-contrast images</li>
+          </ul>
+        </div>
+        <div class="rule no">
+          <div class="rule-badge">✗ Won't Work</div>
+          <ul>
+            <li>Real-life photographs</li>
+            <li>Extreme angles or perspective</li>
+            <li>Fine detail (small text, thin lines)</li>
+            <li>Gradients and photo-realistic shading</li>
+            <li>Anything under 24" of resolution</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">
+        Not sure if your idea will work? Email us at
+        <a href="mailto:hello@tuftedtalesstudio.com">hello@tuftedtalesstudio.com</a>
+        and we'll take a look before you book.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACUITY BOOKING EMBED -->
+  <section id="book" class="booking">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Book Your Seat</span>
+        <h2>Pick a date that works for you.</h2>
+        <p class="lede">
+          Live availability from our booking calendar. Booking opens with our September 2026 launch —
+          in the meantime, join the waitlist for early access.
+        </p>
+      </div>
+
+      <!-- TODO: Replace with real Acuity embed URL from client. -->
+      <!-- Example: <iframe src="https://app.acuityscheduling.com/schedule.php?owner=XXXXXXX" title="Schedule Appointment" width="100%" height="800" frameborder="0"></iframe> -->
+      <div class="acuity-placeholder">
+        <div class="acuity-inner">
+          <span class="eyebrow">Booking Widget</span>
+          <h3>Acuity embed coming soon</h3>
+          <p>Booking opens with our September 2026 launch.</p>
+          <a href="/waitlist" class="btn btn-primary">Join the Waitlist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section class="expect">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What to Expect</span>
+        <h2>Your 2.5 hours, roughly.</h2>
+      </div>
+      <ol class="timeline">
+        <li>
+          <div class="step">01</div>
+          <div>
+            <h3>Welcome &amp; setup (15 min)</h3>
+            <p>Meet your instructor, get familiar with the tufting gun, review your design.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step">02</div>
+          <div>
+            <h3>Yarn &amp; color selection (10 min)</h3>
+            <p>Pick your yarn colors from our library of 20+ premium options.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step">03</div>
+          <div>
+            <h3>Tufting your rug (90–100 min)</h3>
+            <p>The fun part. Guided instruction throughout, at your own pace.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step">04</div>
+          <div>
+            <h3>Handoff &amp; finishing (15 min)</h3>
+            <p>We take it from here — trim, glue, back, and finish. Pick up in 24–48 hours.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 720px) { .grid.two { grid-template-columns: 1fr; } }
+
+  .workshop-card {
+    border-radius: var(--radius-lg);
+    padding: clamp(28px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .workshop-card.teal { background: var(--teal); color: var(--cream); }
+  .workshop-card.teal h2 { color: var(--cream); }
+  .workshop-card.teal .chip { background: rgba(238, 214, 191, 0.15); color: var(--cream); }
+  .workshop-card.cream { background: var(--cream); color: var(--teal-ink); }
+  .workshop-card .chip.terra { background: var(--terracotta); color: var(--cream); }
+  .workshop-card h2 { font-size: 2rem; margin: 4px 0 0; }
+  .desc { margin: 0; font-size: 0.98rem; opacity: 0.9; }
+  .price {
+    font-family: var(--font-block);
+    font-size: 2rem;
+    color: var(--terracotta);
+    margin: 0;
+  }
+  .workshop-card.teal .price { color: var(--sage); }
+  .price span {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    opacity: 0.7;
+    margin-left: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: currentColor;
+  }
+  .feat { list-style: none; padding: 0; margin: 8px 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; }
+  .feat li::before { content: "→"; margin-right: 10px; color: var(--terracotta); font-weight: 700; }
+  .workshop-card.teal .feat li::before { color: var(--sage); }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* GUIDELINES */
+  .guidelines { background: var(--cream); }
+  .section-head { max-width: 660px; margin-bottom: 40px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; margin-bottom: 12px; }
+  .lede { font-size: 1.05rem; color: var(--ink-soft); margin: 0; }
+
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  @media (max-width: 640px) { .rules-grid { grid-template-columns: 1fr; } }
+  .rule {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border-left: 6px solid;
+  }
+  .rule.ok { border-color: var(--olive); }
+  .rule.no { border-color: var(--terracotta); }
+  .rule-badge {
+    font-family: var(--font-block);
+    letter-spacing: 0.16em;
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+  }
+  .rule.ok .rule-badge { color: var(--olive-dark); }
+  .rule.no .rule-badge { color: var(--terracotta); }
+  .rule ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem; }
+  .rule.ok ul li::before { content: "✓"; margin-right: 10px; color: var(--olive); font-weight: 700; }
+  .rule.no ul li::before { content: "✗"; margin-right: 10px; color: var(--terracotta); font-weight: 700; }
+  .note { text-align: center; margin: 24px 0 0; color: var(--ink-soft); }
+
+  /* BOOKING */
+  .booking { background: var(--paper); }
+  .acuity-placeholder {
+    aspect-ratio: 3 / 2;
+    max-height: 600px;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(6, 73, 70, 0.04),
+      rgba(6, 73, 70, 0.04) 20px,
+      rgba(6, 73, 70, 0.08) 20px,
+      rgba(6, 73, 70, 0.08) 40px
+    );
+    border: 2px dashed rgba(6, 73, 70, 0.25);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .acuity-inner {
+    text-align: center;
+    background: var(--cream);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    max-width: 420px;
+  }
+  .acuity-inner h3 { margin: 8px 0 14px; font-size: 1.4rem; }
+
+  /* EXPECT */
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 24px;
+    max-width: 720px;
+  }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .step {
+    background: var(--terracotta);
+    color: var(--cream);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-block);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+  .timeline h3 { margin: 8px 0 4px; font-size: 1.2rem; }
+  .timeline p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+</style>

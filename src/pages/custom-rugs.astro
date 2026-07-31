@@ -1,0 +1,236 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<Layout title="Custom Rugs · Tufted Tales Studio" description="Commission a one-of-a-kind custom rug from Tufted Tales Studio. Handmade in Columbus, Georgia. Any size, any design.">
+  <PageHero
+    eyebrow="Custom Rugs"
+    script="One of one."
+    title="Handmade just for you."
+    subtitle="Commission a fully custom rug for your home, business, or as a gift. Any size, any design — priced by size and complexity."
+  />
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How It Works</span>
+        <h2>From your idea to your floor.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="step-num">01</div>
+          <h3>Submit the form</h3>
+          <p>Share your idea, reference images, size, and timeline. The more detail, the faster we can quote.</p>
+        </li>
+        <li>
+          <div class="step-num">02</div>
+          <h3>Get your quote</h3>
+          <p>We follow up within 2 business days with pricing based on size, design complexity, and materials.</p>
+        </li>
+        <li>
+          <div class="step-num">03</div>
+          <h3>Secure your spot</h3>
+          <p>60% deposit reserves your spot in the queue. Non-refundable once your rug is in progress.</p>
+        </li>
+        <li>
+          <div class="step-num">04</div>
+          <h3>We make it</h3>
+          <p>Your rug is tufted, trimmed, and finished by hand. We send progress photos along the way.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PRICING / TURNAROUND -->
+  <section class="turn">
+    <div class="container turn-grid">
+      <div>
+        <span class="eyebrow">Turnaround</span>
+        <h2>Timelines by size.</h2>
+        <table>
+          <tbody>
+            <tr><td>Under 3.5 ft</td><td>2–3 weeks</td></tr>
+            <tr><td>3.5–4.5 ft</td><td>3–4 weeks</td></tr>
+            <tr><td>Above 4.5 ft</td><td>4–6 weeks</td></tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Rush orders available: <strong>+$50 per sq ft</strong> added to your total.
+        </p>
+      </div>
+      <div>
+        <span class="eyebrow">Pricing</span>
+        <h2>Priced by the piece.</h2>
+        <p>
+          Every custom rug is different, so pricing is based on <strong>size, design complexity, materials, and yarn quantity</strong>.
+          Most custom rugs land between $200 and $1,200. We'll send an exact quote after reviewing your form.
+        </p>
+        <p class="callout">
+          <strong>60% deposit</strong> secures your spot in the queue. Deposits are non-refundable once your rug is in progress.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="inquire">
+    <div class="container form-shell">
+      <div class="section-head">
+        <span class="eyebrow">Custom Rug Inquiry</span>
+        <h2>Tell us what you're picturing.</h2>
+        <p class="lede">
+          Please include <strong>details and reference pictures</strong> — inquiries without either won't get a response.
+          For workshop questions, use our <a href="/contact">contact form</a> instead.
+        </p>
+      </div>
+
+      <form
+        name="custom-rugs"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
+        class="inquiry-form"
+      >
+        <input type="hidden" name="form-name" value="custom-rugs" />
+        <p class="visually-hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Your name *</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+          <div class="form-field">
+            <label for="deadline">Needed by (optional)</label>
+            <input id="deadline" name="deadline" type="date" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="width">Approx. width</label>
+            <input id="width" name="width" type="text" placeholder='e.g. 3 ft or 36"' />
+          </div>
+          <div class="form-field">
+            <label for="height">Approx. height</label>
+            <input id="height" name="height" type="text" placeholder='e.g. 4 ft or 48"' />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="description">Describe your design *</label>
+          <textarea id="description" name="description" required placeholder="What you want, colors, style, references. The more detail the better — we can't quote without it."></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="reference">Reference images *</label>
+          <input id="reference" name="reference" type="file" accept="image/*,.pdf" multiple required />
+          <p class="form-hint">Upload sketches, photos, or images that inspire your design. Multiple files welcome.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="rush">Rush order?</label>
+          <select id="rush" name="rush">
+            <option>No — standard turnaround is fine</option>
+            <option>Yes — I understand this adds $50/sq ft</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="notes">Anything else?</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-head { max-width: 700px; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
+  .lede { font-size: 1.05rem; color: var(--ink-soft); }
+
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+  .steps li {
+    background: var(--cream);
+    padding: 28px;
+    border-radius: var(--radius-lg);
+  }
+  .step-num {
+    font-family: var(--font-block);
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+  }
+  .steps h3 { font-size: 1.2rem; margin: 0 0 8px; }
+  .steps p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .turn { background: var(--teal); color: var(--cream); }
+  .turn .eyebrow { color: var(--sage); }
+  .turn h2 { color: var(--cream); margin-bottom: 16px; }
+  .turn a { color: var(--sage); }
+  .turn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 720px) { .turn-grid { grid-template-columns: 1fr; } }
+  .turn table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .turn td {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(238, 214, 191, 0.2);
+  }
+  .turn td:first-child { font-weight: 700; }
+  .turn td:last-child { text-align: right; color: var(--sage); font-family: var(--font-block); font-size: 0.9rem; letter-spacing: 0.1em; }
+  .callout {
+    background: rgba(238, 214, 191, 0.1);
+    padding: 18px;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--terracotta);
+    margin-top: 16px;
+  }
+  .note { margin-top: 12px; opacity: 0.9; }
+
+  .form-section { background: var(--cream); }
+  .form-shell { max-width: 780px; margin: 0 auto; }
+  .inquiry-form {
+    background: #fff;
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .form-submit { margin-top: 12px; }
+  .visually-hidden { position: absolute; left: -9999px; }
+</style>

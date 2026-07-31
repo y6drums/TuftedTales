@@ -1,0 +1,161 @@
+---
+const links = [
+  { href: "/workshops", label: "Workshops" },
+  { href: "/private-events", label: "Private Events" },
+  { href: "/custom-rugs", label: "Custom Rugs" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="brand" aria-label="Tufted Tales Studio home">
+      <img src="/brand/tts-wordmark.svg" alt="Tufted Tales Studio" />
+    </a>
+
+    <nav class="links" aria-label="Primary">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class:list={["link", { active: path === l.href || (l.href !== "/" && path.startsWith(l.href)) }]}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="nav-cta">
+      <a href="/waitlist" class="btn btn-primary btn-sm">Join Waitlist</a>
+    </div>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile" hidden>
+    {links.map((l) => (
+      <a href={l.href} class="mobile-link">{l.label}</a>
+    ))}
+    <a href="/waitlist" class="btn btn-primary mobile-cta">Join the Waitlist</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: saturate(140%) blur(10px);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .brand {
+    flex: 0 0 auto;
+    display: block;
+  }
+  .brand img {
+    height: 44px;
+    width: auto;
+  }
+  .links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+  }
+  .link {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .link:hover {
+    color: var(--teal);
+  }
+  .link.active {
+    color: var(--teal);
+    border-bottom-color: var(--terracotta);
+  }
+  .nav-cta {
+    flex: 0 0 auto;
+  }
+  .btn-sm {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px var(--pad-x) 24px;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .mobile[hidden] { display: none; }
+  .mobile:not([hidden]) { display: flex; }
+  .mobile-link {
+    font-family: var(--font-body);
+    color: var(--teal-ink);
+    font-weight: 600;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+  .mobile-cta {
+    margin-top: 16px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 960px) {
+    .links, .nav-cta { display: none; }
+    .hamburger { display: flex; margin-left: auto; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>(".hamburger");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", (!open).toString());
+    if (menu) {
+      if (open) menu.setAttribute("hidden", "");
+      else menu.removeAttribute("hidden");
+    }
+  });
+</script>

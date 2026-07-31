@@ -1,0 +1,66 @@
+---
+---
+
+<div class="announce">
+  <div class="container announce-inner">
+    <span class="dot" aria-hidden="true"></span>
+    <span>
+      <strong>Now Booking</strong> — Grand Opening September 2026
+    </span>
+    <a href="/waitlist" class="announce-cta">Join the Waitlist →</a>
+  </div>
+</div>
+
+<style>
+  .announce {
+    background: var(--teal);
+    color: var(--cream);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 10px 0;
+    position: relative;
+    z-index: 30;
+  }
+  .announce-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .announce strong {
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+  .announce-cta {
+    color: var(--cream);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--terracotta);
+    text-decoration-thickness: 2px;
+  }
+  .announce-cta:hover {
+    color: var(--sage);
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 0 4px rgba(176, 71, 37, 0.25);
+    animation: pulse 2s ease-in-out infinite;
+    display: inline-block;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+  }
+  @media (max-width: 500px) {
+    .announce-inner { gap: 8px; }
+    .announce { font-size: 0.78rem; }
+  }
+</style>

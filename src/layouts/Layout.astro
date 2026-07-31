@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import AnnouncementBar from "../components/AnnouncementBar.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Tufted Tales Studio — Where Tuft Happens",
+  description = "A hands-on rug tufting studio in Columbus, Georgia. Book a workshop, host a private party, or commission a custom rug. Opening September 2026.",
+  ogImage = "/brand/tts-wordmark.svg",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/brand/tts-badge.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#064946" />
+  </head>
+  <body>
+    <AnnouncementBar />
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

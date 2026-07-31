@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+@font-face {
+  font-family: "Klibeuth";
+  src: url("/fonts/Klibeuth.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hellenic Wide";
+  src: url("/fonts/HellenicWideJFRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --teal: #064946;
+  --teal-ink: #043432;
+  --olive-dark: #696d45;
+  --olive: #969959;
+  --sage: #b2b267;
+  --terracotta: #b04725;
+  --terracotta-deep: #8f3818;
+  --cream: #eed6bf;
+  --cream-soft: #f4e6d4;
+  --paper: #faf4ea;
+  --ink: #1d1d1d;
+  --ink-soft: #3a3a3a;
+  --muted: #6b6b62;
+  --line: rgba(29, 29, 29, 0.12);
+
+  --font-body: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Klibeuth", "Hellenic Wide", Georgia, serif;
+  --font-block: "Hellenic Wide", "Klibeuth", Georgia, serif;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(6, 73, 70, 0.06);
+  --shadow: 0 10px 30px -12px rgba(6, 73, 70, 0.22);
+  --shadow-lg: 0 24px 60px -20px rgba(6, 73, 70, 0.32);
+
+  --container: 1200px;
+  --pad-x: clamp(20px, 4vw, 40px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--terracotta);
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.4em;
+  color: var(--teal-ink);
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.script {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.block {
+  font-family: var(--font-block);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: var(--font-block);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+section {
+  padding: clamp(64px, 9vw, 120px) 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--terracotta);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: var(--terracotta-deep);
+  color: var(--cream);
+}
+
+.btn-teal {
+  background: var(--teal);
+  color: var(--cream);
+}
+
+.btn-teal:hover {
+  background: var(--teal-ink);
+  color: var(--cream);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.btn-outline:hover {
+  background: var(--teal);
+  color: var(--cream);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(238, 214, 191, 0.35);
+}
+
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--teal);
+  border-color: var(--cream);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 73, 70, 0.08);
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: var(--shadow-sm);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.divider-flower {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--terracotta);
+  font-size: 1.4rem;
+  padding: 24px 0;
+}
+
+.divider-flower::before,
+.divider-flower::after {
+  content: "";
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: var(--line);
+}
+
+::selection {
+  background: var(--sage);
+  color: var(--teal-ink);
+}
+
+/* Form styles */
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--teal-ink);
+  letter-spacing: 0.02em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(6, 73, 70, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 6px;
+}

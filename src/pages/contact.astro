@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<Layout title="Contact · Tufted Tales Studio" description="Get in touch with Tufted Tales Studio in Columbus, GA. Email, phone, address, and general inquiry form.">
+  <PageHero
+    eyebrow="Contact"
+    script="Say hi."
+    title="We'd love to hear from you."
+    subtitle="For workshop questions, private events, or just to say hello — use the info below or drop us a note."
+  />
+
+  <section>
+    <div class="container contact-grid">
+      <div class="info">
+        <div class="info-block">
+          <span class="eyebrow">Visit</span>
+          <p class="lg">7613 Fortson Rd, Suite B<br />Columbus, GA</p>
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">Call</span>
+          <p class="lg"><a href="tel:+17069059521">706-905-9521</a></p>
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">Email</span>
+          <p class="lg"><a href="mailto:hello@tuftedtalesstudio.com">hello@tuftedtalesstudio.com</a></p>
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">Follow</span>
+          <p class="lg">@TuftedTalesColumbus</p>
+          <ul class="socials">
+            <li><a href="https://instagram.com/TuftedTalesColumbus" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://tiktok.com/@TuftedTalesColumbus" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://facebook.com/TuftedTalesColumbus" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">Hours</span>
+          <p>Grand opening September 2026 — hours coming soon.</p>
+        </div>
+      </div>
+
+      <div class="form-shell">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="inquiry-form"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="subject">What's this about?</label>
+            <select id="subject" name="subject">
+              <option>General question</option>
+              <option>Workshops</option>
+              <option>Private event</option>
+              <option>Custom rug</option>
+              <option>Press / partnerships</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Find Us</span>
+        <h2>Right off Fortson Road.</h2>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=7613+Fortson+Rd+Columbus+GA&output=embed"
+          title="Tufted Tales Studio location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 5vw, 64px);
+  }
+  @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .info { display: flex; flex-direction: column; gap: 28px; }
+  .info-block .eyebrow { display: block; margin-bottom: 8px; }
+  .info-block p { margin: 0; color: var(--ink-soft); }
+  .info-block .lg { font-size: 1.15rem; color: var(--teal-ink); font-weight: 600; }
+  .info-block .lg a { color: var(--teal); }
+  .socials { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.92rem; }
+  .socials a { color: var(--terracotta); font-weight: 700; }
+
+  .form-shell { }
+  .inquiry-form {
+    background: #fff;
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .form-submit { margin-top: 12px; }
+  .visually-hidden { position: absolute; left: -9999px; }
+
+  .map-section { background: var(--cream); }
+  .section-head { max-width: 660px; margin-bottom: 32px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
+  .map-embed {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

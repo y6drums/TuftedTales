@@ -1,0 +1,586 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Rug Tufting Studio · Columbus, GA</span>
+        <h1>
+          <span class="script hero-script">Tufted tales</span>
+          <span class="block hero-block">where tuft happens</span>
+        </h1>
+        <p class="lede">
+          A hands-on rug tufting studio where you slow down, get creative,
+          and leave with a one-of-a-kind piece that tells your story.
+        </p>
+        <div class="hero-ctas">
+          <a href="/workshops" class="btn btn-primary">Book a Workshop · $75+</a>
+          <a href="/private-events" class="btn btn-outline">Host a Private Party</a>
+        </div>
+        <ul class="hero-bullets">
+          <li><span>2.5 hrs</span> · all materials included</li>
+          <li><span>No experience needed</span> · beginner friendly</li>
+          <li><span>Take it home</span> · a rug that's actually yours</li>
+        </ul>
+      </div>
+
+      <div class="hero-video">
+        <!-- TODO: swap placeholder for Taiylor's hero video -->
+        <div class="video-placeholder" aria-label="Hero video placeholder">
+          <div class="video-play">▶</div>
+          <div class="video-caption">Hero video coming soon</div>
+        </div>
+        <img src="/brand/tts-sticker.svg" alt="" class="hero-sticker" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 10-SECOND ANSWER STRIP -->
+  <section class="answer-strip">
+    <div class="container answer-grid">
+      <div class="answer">
+        <div class="num">01</div>
+        <h3>What we are</h3>
+        <p>A rug tufting studio for makers, friends, dates, and celebrations.</p>
+      </div>
+      <div class="answer">
+        <div class="num">02</div>
+        <h3>What you can do</h3>
+        <p>Book a 2.5-hour workshop, host a private party, or order a custom rug.</p>
+      </div>
+      <div class="answer">
+        <div class="num">03</div>
+        <h3>How much</h3>
+        <p>Workshops from $75. Private parties from $600. Everything included.</p>
+      </div>
+      <div class="answer">
+        <div class="num">04</div>
+        <h3>How to book</h3>
+        <p>Join the waitlist now — booking opens with our September 2026 launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS PREVIEW -->
+  <section class="workshops-preview">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Workshops</span>
+        <h2>Design a rug that's <em>yours</em>.</h2>
+        <p class="section-lede">
+          Every workshop is more than a class — it's a creative experience. Choose your yarn,
+          your colors, your design. Leave with something you'll actually keep.
+        </p>
+      </div>
+
+      <div class="workshop-grid">
+        <article class="workshop-card teal">
+          <span class="chip">Beginner Friendly</span>
+          <h3>Signature Workshop</h3>
+          <p class="price">$75 <span>per person</span></p>
+          <ul class="feat">
+            <li>2.5 hours of instructor-led tufting</li>
+            <li>Pre-designed pattern library to choose from</li>
+            <li>All materials + premium yarn included</li>
+            <li>Professionally finished, ready in 24–48 hrs</li>
+          </ul>
+          <a href="/workshops" class="btn btn-teal">See Available Dates</a>
+        </article>
+
+        <article class="workshop-card cream">
+          <span class="chip terra">Custom Design</span>
+          <h3>Custom Workshop</h3>
+          <p class="price">$85 <span>per person</span></p>
+          <ul class="feat">
+            <li>2.5 hours + custom-design consultation</li>
+            <li>Bring your own artwork (guidelines provided)</li>
+            <li>All materials + premium yarn included</li>
+            <li>Professionally finished, ready in 24–48 hrs</li>
+          </ul>
+          <a href="/workshops" class="btn btn-primary">See Available Dates</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SHORT -->
+  <section class="about-short">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <div class="visual-placeholder">
+          <span class="eyebrow">Photo · Studio interior</span>
+        </div>
+        <img src="/brand/tts-badge.svg" alt="" class="badge-float" aria-hidden="true" />
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">Our Story</span>
+        <h2>Every rug tells a tale.</h2>
+        <p>
+          Tufted Tales Studio is a hands-on rug tufting studio in Columbus, Georgia,
+          serving the Chattahoochee Valley. Created for people seeking a real creative
+          experience, it's a place to slow down, get inspired, and leave with something
+          personal — something that carries a story of its own.
+        </p>
+        <p>
+          <em>"Tufted"</em> speaks to the craft — the texture, the yarn, the making.
+          <em>"Tales"</em> reflects the meaning behind each piece. No two rugs are
+          exactly alike, and no two stories are either.
+        </p>
+        <a href="/about" class="btn btn-outline">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery-preview">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Gallery</span>
+        <h2>Made here, loved forever.</h2>
+      </div>
+      <div class="gallery-strip">
+        {[1,2,3,4,5,6].map((i) => (
+          <div class={`gal-item gal-${i}`}>
+            <span class="gal-label">Rug 0{i}</span>
+          </div>
+        ))}
+      </div>
+      <div class="center-cta">
+        <a href="/gallery" class="btn btn-outline">See the Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST BAND -->
+  <section class="waitlist-band">
+    <div class="container waitlist-inner">
+      <img src="/brand/tts-sticker.svg" alt="" class="wl-sticker left" aria-hidden="true" />
+      <div class="waitlist-copy">
+        <span class="eyebrow" style="color: var(--sage);">Opening September 2026</span>
+        <h2 class="on-teal">
+          <span class="script">Be first through the door.</span>
+        </h2>
+        <p>
+          Join the waitlist for early access to workshop booking, launch events,
+          and a first-timer discount when we open.
+        </p>
+        <a href="/waitlist" class="btn btn-primary">Join the Waitlist</a>
+      </div>
+      <img src="/brand/tts-sticker.svg" alt="" class="wl-sticker right" aria-hidden="true" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------- HERO ---------- */
+  .hero {
+    padding-top: clamp(48px, 6vw, 80px);
+    padding-bottom: clamp(64px, 8vw, 100px);
+    background:
+      radial-gradient(1200px 500px at 90% -10%, rgba(178, 178, 103, 0.35), transparent 60%),
+      radial-gradient(900px 400px at -10% 10%, rgba(6, 73, 70, 0.10), transparent 55%),
+      var(--paper);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .hero-copy .eyebrow {
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .hero-script {
+    font-size: clamp(3.6rem, 9vw, 6.6rem);
+    color: var(--teal);
+    display: block;
+    line-height: 0.9;
+    margin-bottom: 4px;
+  }
+  .hero-block {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    color: var(--terracotta);
+    letter-spacing: 0.3em;
+    display: block;
+    margin-left: 6px;
+  }
+  h1 { margin-bottom: 24px; }
+  .lede {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 32px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .hero-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .hero-bullets li::before {
+    content: "✱";
+    color: var(--terracotta);
+    margin-right: 10px;
+    font-weight: 700;
+  }
+  .hero-bullets span {
+    font-weight: 700;
+    color: var(--teal-ink);
+  }
+
+  .hero-video {
+    position: relative;
+  }
+  .video-placeholder {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, var(--teal), var(--teal-ink));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    gap: 16px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .video-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(178,178,103,0.3), transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(176,71,37,0.25), transparent 40%);
+  }
+  .video-play {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding-left: 6px;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  .video-caption {
+    font-family: var(--font-block);
+    font-size: 0.8rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    z-index: 1;
+  }
+  .hero-sticker {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    transform: rotate(15deg);
+    z-index: 2;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-video { max-width: 480px; margin: 0 auto; }
+    .hero-sticker { width: 70px; height: 70px; top: -20px; right: -10px; }
+  }
+
+  /* ---------- ANSWER STRIP ---------- */
+  .answer-strip {
+    background: var(--cream);
+    padding: clamp(48px, 6vw, 72px) 0;
+  }
+  .answer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .answer {
+    text-align: left;
+  }
+  .num {
+    font-family: var(--font-block);
+    color: var(--terracotta);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+  .answer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--teal-ink);
+  }
+  .answer p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  @media (max-width: 800px) {
+    .answer-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  }
+  @media (max-width: 460px) {
+    .answer-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head {
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+  .section-head.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .section-head h2 em {
+    font-family: var(--font-display);
+    font-style: normal;
+    color: var(--terracotta);
+    font-weight: 400;
+  }
+  .section-lede {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---------- WORKSHOPS ---------- */
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .workshop-card {
+    border-radius: var(--radius-lg);
+    padding: clamp(28px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .workshop-card.teal {
+    background: var(--teal);
+    color: var(--cream);
+  }
+  .workshop-card.teal h3 { color: var(--cream); }
+  .workshop-card.teal .chip {
+    background: rgba(238, 214, 191, 0.15);
+    color: var(--cream);
+  }
+  .workshop-card.cream {
+    background: var(--cream);
+    color: var(--teal-ink);
+  }
+  .workshop-card .chip.terra {
+    background: var(--terracotta);
+    color: var(--cream);
+  }
+  .workshop-card h3 {
+    font-size: 1.8rem;
+    margin: 4px 0 0;
+  }
+  .price {
+    font-family: var(--font-block);
+    font-size: 2rem;
+    color: var(--terracotta);
+    margin: 0;
+    letter-spacing: 0;
+  }
+  .workshop-card.teal .price { color: var(--sage); }
+  .price span {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    color: currentColor;
+    opacity: 0.7;
+    margin-left: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+  }
+  .feat {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+  .feat li::before {
+    content: "→";
+    margin-right: 10px;
+    color: var(--terracotta);
+    font-weight: 700;
+  }
+  .workshop-card.teal .feat li::before { color: var(--sage); }
+  .workshop-card .btn { align-self: flex-start; }
+
+  @media (max-width: 720px) {
+    .workshop-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- ABOUT SHORT ---------- */
+  .about-short {
+    background:
+      radial-gradient(700px 400px at 90% 30%, rgba(178, 178, 103, 0.2), transparent 60%),
+      var(--paper);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .about-visual { position: relative; }
+  .visual-placeholder {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, var(--sage), var(--olive-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .visual-placeholder .eyebrow {
+    color: var(--cream);
+  }
+  .badge-float {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 130px;
+    height: 130px;
+    background: var(--cream);
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: var(--shadow);
+  }
+  .about-copy h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .about-copy p {
+    margin: 0 0 16px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+  .about-copy em {
+    font-family: var(--font-display);
+    color: var(--terracotta);
+    font-style: normal;
+    font-size: 1.15em;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .badge-float { width: 90px; height: 90px; bottom: -20px; left: 12px; }
+  }
+
+  /* ---------- GALLERY STRIP ---------- */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .gal-item {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-block);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+  }
+  .gal-item:hover { transform: translateY(-4px); }
+  .gal-1 { background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep)); color: var(--cream); }
+  .gal-2 { background: linear-gradient(135deg, var(--teal), var(--teal-ink)); color: var(--cream); }
+  .gal-3 { background: linear-gradient(135deg, var(--sage), var(--olive)); color: var(--teal-ink); }
+  .gal-4 { background: linear-gradient(135deg, var(--cream), var(--cream-soft)); color: var(--teal); }
+  .gal-5 { background: linear-gradient(135deg, var(--olive-dark), var(--olive)); color: var(--cream); }
+  .gal-6 { background: linear-gradient(135deg, var(--terracotta), var(--olive)); color: var(--cream); }
+  .center-cta { text-align: center; }
+
+  @media (max-width: 720px) {
+    .gallery-strip { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ---------- WAITLIST BAND ---------- */
+  .waitlist-band {
+    background:
+      radial-gradient(500px 200px at 50% 100%, rgba(176, 71, 37, 0.25), transparent 70%),
+      var(--teal);
+    color: var(--cream);
+    text-align: center;
+    padding: clamp(72px, 10vw, 120px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .waitlist-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .waitlist-copy {
+    max-width: 620px;
+  }
+  .waitlist-copy h2.on-teal {
+    color: var(--cream);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1;
+    margin: 8px 0 16px;
+  }
+  .waitlist-copy .script {
+    font-size: clamp(3rem, 6vw, 4.4rem);
+    color: var(--cream);
+  }
+  .waitlist-copy p {
+    font-size: 1.1rem;
+    opacity: 0.88;
+    margin: 0 auto 28px;
+    max-width: 46ch;
+  }
+  .wl-sticker {
+    width: 120px;
+    height: 120px;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .wl-sticker.left { transform: rotate(-12deg); }
+  .wl-sticker.right { transform: rotate(12deg); }
+  @media (max-width: 720px) {
+    .wl-sticker { display: none; }
+  }
+</style>

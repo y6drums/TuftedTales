@@ -1,0 +1,140 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="col brand-col">
+      <img src="/brand/tts-vertical.svg" alt="Tufted Tales Studio" class="footer-logo" />
+      <p class="tagline script">Where Tuft Happens</p>
+      <p class="body">
+        A hands-on rug tufting studio in Columbus, Georgia.
+        Grand opening September 2026.
+      </p>
+    </div>
+
+    <div class="col">
+      <h4>Visit</h4>
+      <p>
+        7613 Fortson Rd, Suite B<br />
+        Columbus, GA
+      </p>
+      <p>
+        <a href="tel:+17069059521">706-905-9521</a><br />
+        <a href="mailto:hello@tuftedtalesstudio.com">hello@tuftedtalesstudio.com</a>
+      </p>
+    </div>
+
+    <div class="col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/workshops">Workshops</a></li>
+        <li><a href="/private-events">Private Events</a></li>
+        <li><a href="/custom-rugs">Custom Rugs</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/faq">FAQ &amp; Policies</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>Follow</h4>
+      <p>@TuftedTalesColumbus</p>
+      <ul class="social">
+        <li><a href="https://instagram.com/TuftedTalesColumbus" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://tiktok.com/@TuftedTalesColumbus" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://facebook.com/TuftedTalesColumbus" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+      <a href="/waitlist" class="btn btn-primary" style="margin-top: 14px;">Join the Waitlist</a>
+    </div>
+  </div>
+
+  <div class="container legal">
+    <span>&copy; {year} Tufted Tales Studio. All rights reserved.</span>
+    <span class="dot">✱</span>
+    <span>Made in Columbus, Georgia</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--teal-ink);
+    color: var(--cream);
+    padding: clamp(56px, 8vw, 96px) 0 32px;
+    margin-top: clamp(48px, 8vw, 96px);
+  }
+  .footer a {
+    color: var(--cream);
+  }
+  .footer a:hover {
+    color: var(--sage);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(238, 214, 191, 0.15);
+  }
+  .footer-logo {
+    height: 96px;
+    width: auto;
+    margin-bottom: 16px;
+    filter: brightness(0) invert(1) sepia(0.4) saturate(2) hue-rotate(-10deg);
+    opacity: 0.9;
+  }
+  .tagline {
+    font-size: 1.8rem;
+    color: var(--sage);
+    margin: 0 0 12px;
+    line-height: 1;
+  }
+  .body {
+    font-size: 0.92rem;
+    opacity: 0.85;
+    max-width: 32ch;
+  }
+  h4 {
+    font-family: var(--font-block);
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 18px;
+    font-weight: 400;
+  }
+  .col p, .col ul {
+    font-size: 0.92rem;
+    margin: 0 0 12px;
+  }
+  .col ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 32px;
+    font-size: 0.82rem;
+    opacity: 0.7;
+    flex-wrap: wrap;
+  }
+  .legal .dot { color: var(--terracotta); }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+  @media (max-width: 560px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

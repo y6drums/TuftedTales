@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const categories = ["All", "Workshops", "Private Events", "Custom", "In Progress"];
+const items = Array.from({ length: 18 }, (_, i) => ({
+  id: i + 1,
+  cat: ["Workshops", "Custom", "Private Events", "In Progress"][i % 4],
+}));
+---
+
+<Layout title="Gallery · Tufted Tales Studio" description="See tufted rugs made at Tufted Tales Studio — workshop favorites, private event highlights, and custom commissions.">
+  <PageHero
+    eyebrow="Gallery"
+    script="Made here."
+    title="Loved forever."
+    subtitle="A growing collection of rugs made at the studio. Real photos from real classes coming as soon as we open."
+  />
+
+  <section class="gallery">
+    <div class="container">
+      <div class="filter-row">
+        {categories.map((c, i) => (
+          <button type="button" class={`filter-chip ${i === 0 ? "active" : ""}`} data-filter={c.toLowerCase()}>
+            {c}
+          </button>
+        ))}
+      </div>
+
+      <div class="gallery-grid">
+        {items.map((it) => (
+          <figure class="gal-tile" data-cat={it.cat.toLowerCase()}>
+            <div class={`gal-visual style-${(it.id % 6) + 1}`}>
+              <span class="gal-num">0{it.id % 10}</span>
+            </div>
+            <figcaption>
+              <span class="cat">{it.cat}</span>
+              <span class="sep">·</span>
+              <span>Rug #{it.id.toString().padStart(3, "0")}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <p class="placeholder-note">
+        <strong>Real photos coming soon.</strong> These are placeholder tiles — once the studio opens in
+        September 2026, this gallery will fill up with actual workshop, private event, and custom rug photos.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .filter-chip {
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .filter-chip:hover { border-color: var(--teal); color: var(--teal); }
+  .filter-chip.active {
+    background: var(--teal);
+    color: var(--cream);
+    border-color: var(--teal);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+  .gal-tile { margin: 0; }
+  .gal-visual {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-block);
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gal-visual:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .style-1 { background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep)); color: var(--cream); }
+  .style-2 { background: linear-gradient(135deg, var(--teal), var(--teal-ink)); color: var(--cream); }
+  .style-3 { background: linear-gradient(135deg, var(--sage), var(--olive)); color: var(--teal-ink); }
+  .style-4 { background: linear-gradient(135deg, var(--cream), var(--cream-soft)); color: var(--teal); border: 1px solid var(--line); }
+  .style-5 { background: linear-gradient(135deg, var(--olive-dark), var(--olive)); color: var(--cream); }
+  .style-6 { background: linear-gradient(135deg, var(--terracotta), var(--olive)); color: var(--cream); }
+
+  figcaption {
+    padding: 12px 4px 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cat {
+    font-family: var(--font-block);
+    color: var(--terracotta);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+  }
+  .sep { opacity: 0.4; }
+
+  .placeholder-note {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-radius: var(--radius);
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .gal-tile[hidden] { display: none; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>(".filter-chip");
+  const tiles = document.querySelectorAll<HTMLElement>(".gal-tile");
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      const f = chip.dataset.filter;
+      tiles.forEach((t) => {
+        if (f === "all" || t.dataset.cat === f) t.removeAttribute("hidden");
+        else t.setAttribute("hidden", "");
+      });
+    });
+  });
+</script>

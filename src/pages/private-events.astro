@@ -1,0 +1,266 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<Layout title="Private Events · Tufted Tales Studio" description="Book Tufted Tales Studio for birthday parties, girls' nights, corporate team building, and celebrations. Starting at $600 for the studio + $65 per person.">
+  <PageHero
+    eyebrow="Private Events"
+    script="Your people."
+    title="Your rugs. Your night."
+    subtitle="Book the whole studio for birthdays, girls' nights, date nights, corporate team-building, or just a really good excuse to hang out."
+  />
+
+  <!-- PRICING BAND -->
+  <section class="pricing-band">
+    <div class="container pricing-grid">
+      <div class="pricing-card">
+        <span class="eyebrow">Studio Buyout</span>
+        <p class="big-price">from $600</p>
+        <p>Starting rate to reserve the studio for your group.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="eyebrow">Per Guest</span>
+        <p class="big-price">+ $65</p>
+        <p>Includes tufting, materials, instruction, and finishing.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="eyebrow">Duration</span>
+        <p class="big-price">~3.5 hrs</p>
+        <p>Setup, guided tufting, finishing, and photos.</p>
+      </div>
+    </div>
+    <p class="fineprint">Group discounts available for parties of 10+ · Minimum age: 14 · Ask about travel to your venue</p>
+  </section>
+
+  <!-- PERFECT FOR -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Perfect For</span>
+        <h2>Whatever you're celebrating.</h2>
+      </div>
+      <div class="tag-grid">
+        {[
+          "Birthday Parties",
+          "Bridal &amp; Bachelorette",
+          "Girls' Night Out",
+          "Date Nights",
+          "Family Fun",
+          "Corporate Team Building",
+          "College Groups",
+          "Baby Showers",
+          "Retirement Parties",
+          "Anniversaries",
+          "Milestone Celebrations",
+          "Just Because",
+        ].map((label) => (
+          <span class="event-tag" set:html={label} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section class="form-section" id="inquire">
+    <div class="container form-shell">
+      <div class="section-head">
+        <span class="eyebrow">Private Event Inquiry</span>
+        <h2>Tell us about your event.</h2>
+        <p class="lede">
+          We'll follow up within 1 business day with availability, a custom quote,
+          and next steps.
+        </p>
+      </div>
+
+      <form
+        name="private-events"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
+        class="inquiry-form"
+      >
+        <input type="hidden" name="form-name" value="private-events" />
+        <p class="visually-hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Your name *</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="form-field">
+            <label for="event-type">Event type *</label>
+            <select id="event-type" name="event-type" required>
+              <option value="">Select one…</option>
+              <option>Birthday</option>
+              <option>Girls' Night</option>
+              <option>Bridal / Bachelorette</option>
+              <option>Corporate / Team Building</option>
+              <option>Family Gathering</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="event-date">Preferred date *</label>
+            <input id="event-date" name="event-date" type="date" required />
+          </div>
+          <div class="form-field">
+            <label for="event-time">Preferred time</label>
+            <select id="event-time" name="event-time">
+              <option value="">Flexible</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="guests">Number of guests *</label>
+            <input id="guests" name="guests" type="number" min="1" max="40" required />
+            <p class="form-hint">Minimum age is 14 for all guests.</p>
+          </div>
+          <div class="form-field">
+            <label for="age-range">Age range of guests</label>
+            <select id="age-range" name="age-range">
+              <option value="">Select one…</option>
+              <option>Teens (14–17)</option>
+              <option>Adults (18+)</option>
+              <option>Mixed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="travel">Where would you like to host?</label>
+          <select id="travel" name="travel">
+            <option>At the studio (Columbus, GA)</option>
+            <option>Off-site (please tell us where in the details field)</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="theme">Celebration theme or vibe</label>
+          <input id="theme" name="theme" type="text" placeholder="e.g. Y2K, coastal, dark academia, none in particular" />
+        </div>
+
+        <div class="form-field">
+          <label for="artwork">Logo, monogram, or artwork upload</label>
+          <input id="artwork" name="artwork" type="file" accept="image/*,.pdf,.svg" />
+          <p class="form-hint">Optional. Great for corporate events or themed parties.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="details">Event details</label>
+          <textarea id="details" name="details" placeholder="Anything else we should know? Food/drink plans, must-have designs, special guests, etc."></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="referral">How did you hear about us?</label>
+          <select id="referral" name="referral">
+            <option value="">Select one…</option>
+            <option>Instagram</option>
+            <option>TikTok</option>
+            <option>Facebook</option>
+            <option>Google search</option>
+            <option>A friend</option>
+            <option>Drove by the studio</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pricing-band {
+    background: var(--teal);
+    color: var(--cream);
+    padding: clamp(48px, 6vw, 72px) 0;
+  }
+  .pricing-band .eyebrow { color: var(--sage); }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 720px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+  .pricing-card p { margin: 0; }
+  .big-price {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.4rem);
+    color: var(--cream);
+    line-height: 1;
+    margin: 8px 0 12px !important;
+  }
+  .pricing-card p:last-child {
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
+  .fineprint {
+    text-align: center;
+    max-width: var(--container);
+    margin: 40px auto 0;
+    padding: 0 var(--pad-x);
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  .section-head { max-width: 660px; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
+  .lede { font-size: 1.05rem; color: var(--ink-soft); }
+
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .event-tag {
+    padding: 12px 22px;
+    background: var(--cream);
+    color: var(--teal-ink);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-block);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* FORM */
+  .form-section { background: var(--cream); }
+  .form-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .inquiry-form {
+    background: #fff;
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .form-submit { margin-top: 12px; }
+  .visually-hidden { position: absolute; left: -9999px; }
+</style>

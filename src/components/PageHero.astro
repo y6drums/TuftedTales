@@ -1,0 +1,56 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  script?: string;
+  subtitle?: string;
+}
+const { eyebrow, title, script, subtitle } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h1>
+      {script && <span class="script s">{script}</span>}
+      <span class="t">{title}</span>
+    </h1>
+    {subtitle && <p class="sub">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding: clamp(56px, 8vw, 96px) 0 clamp(48px, 6vw, 72px);
+    background:
+      radial-gradient(900px 400px at 90% 20%, rgba(178, 178, 103, 0.28), transparent 60%),
+      radial-gradient(700px 300px at 10% 80%, rgba(6, 73, 70, 0.08), transparent 55%),
+      var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow { display: inline-block; margin-bottom: 16px; }
+  h1 {
+    margin: 0 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  .s {
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--teal);
+    line-height: 0.9;
+  }
+  .t {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--teal-ink);
+    line-height: 1.05;
+    font-weight: 700;
+  }
+  .sub {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+</style>
