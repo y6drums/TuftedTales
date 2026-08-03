@@ -75,38 +75,51 @@ import Accent from "../components/Accent.astro";
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Workshops</span>
-        <h2>Design a rug that's <em>yours</em>.</h2>
+        <h2>Three ways to <em>create</em>.</h2>
         <p class="section-lede">
-          Every workshop is more than a class — it's a creative experience. Choose your yarn,
-          your colors, your design. Leave with something you'll actually keep.
+          From beginner-friendly tufting to the full rug-making process to our signature paint-pour Tale Bears —
+          pick the creative experience that fits your vibe.
         </p>
       </div>
 
       <div class="workshop-grid">
         <article class="workshop-card teal">
-          <span class="chip">Beginner Friendly</span>
-          <h3>Signature Workshop</h3>
-          <p class="price">$75 <span>per person</span></p>
+          <span class="chip">Signature</span>
+          <h3>Signature Tuft Experience</h3>
+          <p class="price">$85 <span>per person</span></p>
           <ul class="feat">
-            <li>2.5 hours of instructor-led tufting</li>
-            <li>Pre-designed pattern library to choose from</li>
-            <li>All materials + premium yarn included</li>
-            <li>Professionally finished, ready in 24–48 hrs</li>
+            <li>3–3.5 hour instructor-led tufting</li>
+            <li>Choose from our curated design library</li>
+            <li>All materials + 20+ yarn colors included</li>
+            <li>Professionally finished — ready in 24–48 hrs</li>
           </ul>
           <a href="/workshops#book" class="btn btn-ghost">See Available Dates</a>
         </article>
 
         <article class="workshop-card cream">
-          <span class="chip terra">Custom Design</span>
-          <h3>Custom Workshop</h3>
-          <p class="price">$85 <span>per person</span></p>
+          <span class="chip terra">Full Experience</span>
+          <h3>Complete Rug Maker Experience</h3>
+          <p class="price">$99 <span>per person</span></p>
           <ul class="feat">
-            <li>2.5 hours + custom-design consultation</li>
-            <li>Bring your own artwork (guidelines provided)</li>
-            <li>All materials + premium yarn included</li>
-            <li>Professionally finished, ready in 24–48 hrs</li>
+            <li>4–4.5 hours — tuft + learn finishing</li>
+            <li>Shave, trim, glue, and back your own rug</li>
+            <li>All materials + 20+ yarn colors included</li>
+            <li>Take your finished rug home same day</li>
           </ul>
           <a href="/workshops#book" class="btn btn-primary">See Available Dates</a>
+        </article>
+
+        <article class="workshop-card terracotta">
+          <span class="chip cream-chip">Paint Pour</span>
+          <h3>Tale Bears Experience</h3>
+          <p class="price">From $34.99</p>
+          <ul class="feat">
+            <li>7" bear $34.99 · 9" bear $54.99</li>
+            <li>Signature paint-pour technique</li>
+            <li>Up to 3 paint colors + refills included</li>
+            <li>Professionally sealed — ready in 24–48 hrs</li>
+          </ul>
+          <a href="/workshops#book" class="btn btn-ghost">See Available Dates</a>
         </article>
       </div>
     </div>
@@ -348,15 +361,15 @@ import Accent from "../components/Accent.astro";
   /* ---------- WORKSHOPS ---------- */
   .workshop-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
   .workshop-card {
     border-radius: var(--radius-lg);
-    padding: clamp(28px, 3vw, 40px);
+    padding: clamp(24px, 2.4vw, 32px);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
   }
   .workshop-card.teal {
     background: var(--teal);
@@ -375,20 +388,31 @@ import Accent from "../components/Accent.astro";
     background: var(--terracotta);
     color: var(--cream);
   }
+  .workshop-card.terracotta {
+    background: var(--terracotta);
+    color: var(--cream);
+  }
+  .workshop-card.terracotta h3 { color: var(--cream); }
+  .workshop-card.terracotta .chip.cream-chip {
+    background: rgba(238, 214, 191, 0.2);
+    color: var(--cream);
+  }
   .workshop-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin: 4px 0 0;
+    line-height: 1.15;
   }
   .price {
     font-family: var(--font-block);
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--terracotta);
     margin: 0;
     letter-spacing: 0;
   }
   .workshop-card.teal .price { color: var(--sage); }
+  .workshop-card.terracotta .price { color: var(--cream); }
   .price span {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.16em;
     color: currentColor;
     opacity: 0.7;
@@ -402,8 +426,8 @@ import Accent from "../components/Accent.astro";
     margin: 8px 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: 0.95rem;
+    gap: 8px;
+    font-size: 0.92rem;
   }
   .feat li::before {
     content: "→";
@@ -412,9 +436,10 @@ import Accent from "../components/Accent.astro";
     font-weight: 700;
   }
   .workshop-card.teal .feat li::before { color: var(--sage); }
+  .workshop-card.terracotta .feat li::before { color: var(--cream); }
   .workshop-card .btn { align-self: flex-start; }
 
-  @media (max-width: 720px) {
+  @media (max-width: 960px) {
     .workshop-grid { grid-template-columns: 1fr; }
   }
 
