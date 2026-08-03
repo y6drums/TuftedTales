@@ -152,6 +152,57 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
+  // Fire-and-forget waitlist welcome email to the joiner.
+  if (formType === 'waitlist' && senderEmail && /.+@.+\..+/.test(senderEmail)) {
+    const firstName = senderName.split(/\s+/)[0] || '';
+    const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : 'Hi!';
+
+    const welcomeHtml = `<div style="font-family:'Mulish',system-ui,sans-serif;max-width:600px;margin:0 auto;background:#faf4ea;padding:36px 28px;border-radius:14px;color:#1d1d1d;">
+        <div style="text-align:center;border-bottom:2px solid #b04725;padding-bottom:16px;margin-bottom:24px;">
+          <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#b04725;font-weight:700;">Welcome</div>
+          <div style="font-size:26px;color:#064946;font-weight:700;margin-top:6px;line-height:1.15;">You're on the list!</div>
+        </div>
+        <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">${greeting}</p>
+        <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">Thanks for joining the Tufted Tales Studio Waitlist.</p>
+        <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">You're officially among the first to hear about our grand opening, workshop dates, private events, Tale Bears experiences, studio rentals, exclusive promotions, and special announcements.</p>
+        <p style="margin:0 0 20px;font-size:15px;line-height:1.55;">We're excited to welcome you into the studio soon and can't wait to help you create something unforgettable.</p>
+        <p style="margin:0 0 6px;font-size:15px;line-height:1.55;">See you soon!</p>
+        <p style="margin:0;font-size:15px;line-height:1.55;font-weight:700;color:#064946;">The Tufted Tales Studio Team</p>
+        <div style="margin-top:28px;padding-top:16px;border-top:1px solid rgba(29,29,29,0.12);font-size:12px;color:#6b6b62;text-align:center;">
+          Tufted Tales Studio · 7613 Fortson Rd, Suite B, Columbus, GA · <a href="mailto:hello@tuftedtalesstudio.com" style="color:#b04725;text-decoration:none;">hello@tuftedtalesstudio.com</a>
+        </div>
+      </div>`;
+
+    const welcomeText = `${firstName ? `Hi ${firstName},` : 'Hi!'}
+
+Thanks for joining the Tufted Tales Studio Waitlist.
+
+You're officially among the first to hear about our grand opening, workshop dates, private events, Tale Bears experiences, studio rentals, exclusive promotions, and special announcements.
+
+We're excited to welcome you into the studio soon and can't wait to help you create something unforgettable.
+
+See you soon!
+The Tufted Tales Studio Team
+
+Tufted Tales Studio · 7613 Fortson Rd, Suite B, Columbus, GA
+hello@tuftedtalesstudio.com`;
+
+    try {
+      const { error: welcomeError } = await resend.emails.send({
+        from,
+        to: [senderEmail],
+        replyTo: inbox,
+        subject: 'Welcome to the Tufted Tales Studio VIP Waitlist!',
+        html: welcomeHtml,
+        text: welcomeText,
+      });
+      if (welcomeError) console.error('Waitlist welcome email failed:', welcomeError);
+    } catch (err) {
+      // Don't fail the request — inbox notification already succeeded.
+      console.error('Waitlist welcome email threw:', err);
+    }
+  }
+
   return new Response(JSON.stringify({ ok: true }), {
     status: 200,
     headers: { 'content-type': 'application/json' },

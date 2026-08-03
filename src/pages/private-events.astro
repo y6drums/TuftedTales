@@ -1,40 +1,178 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
+
+const offerings = [
+  {
+    key: "rug-party",
+    tag: "Most Popular",
+    title: "Rug Tufting Party",
+    tagline: "Host a private rug tufting experience for your group.",
+    price: "Starting at $1,080",
+    priceNote: "12 guests at $90 each · Additional guests $90 pp",
+    details: [
+      "Minimum of 12 guests",
+      "Accommodates up to 18 guests",
+      "Choose from our curated design library",
+      "All materials, premium yarn, and instruction included",
+      "Our team professionally finishes each rug",
+      "Finished rugs ready for pickup within 24–48 hours",
+    ],
+    button: "Book a Rug Tufting Party",
+    tone: "teal",
+  },
+  {
+    key: "mixed",
+    tag: "Best of Both",
+    title: "Mixed Creative Party",
+    tagline: "Can't decide? Let your guests choose their experience.",
+    price: "Up to 20 guests",
+    priceNote: "12 rug tufting guests + 8 Tale Bears guests",
+    details: [
+      "Perfect for birthdays, family celebrations, church groups, corporate events",
+      "Great for groups with guests of different ages and interests",
+      "Two experiences running side-by-side under one roof",
+      "Rug tufting pricing at $90 pp · Tale Bears pricing at $34.99–$54.99 pp",
+    ],
+    button: "Book a Mixed Creative Party",
+    tone: "cream",
+  },
+  {
+    key: "bears",
+    tag: "Kid-Friendly",
+    title: "Tale Bears Party",
+    tagline:
+      "Perfect for kids, families, birthdays, and anyone looking for a fun creative experience.",
+    price: "$34.99 – $54.99",
+    priceNote: "7-inch bear $34.99 pp · 9-inch bear $54.99 pp",
+    details: [
+      "Choice of 7-inch or 9-inch Tale Bear",
+      "Choose up to 3 paint colors",
+      "Professionally sealed",
+      "Ready for pickup within 24–48 hours",
+    ],
+    button: "Book a Tale Bears Party",
+    tone: "terracotta",
+  },
+  {
+    key: "rental",
+    tag: "Studio Rental",
+    title: "Studio Rentals",
+    tagline: "Need a beautiful creative space without booking an activity? Our studio is available to rent for private events.",
+    price: "Custom Quote",
+    priceNote: "Based on your event needs",
+    details: [
+      "Front studio — birthdays, showers, meetings, workshops, small gatherings",
+      "Back studio — larger groups, classes, meetings, creative events",
+      "Entire studio — reserve for exclusive use",
+      "Great for pop-up shops, vendor events, content creation, networking, and more",
+    ],
+    button: "Request a Studio Rental Quote",
+    tone: "olive",
+  },
+];
+
+const included = [
+  "Private use of the reserved space",
+  "Dedicated event host",
+  "Tables and seating",
+  "Bluetooth speaker access",
+  "Clean, modern creative studio",
+  "Free on-site parking",
+];
+
+const capacities = [
+  { label: "Rug Tufting Party", value: "Up to 18 guests" },
+  { label: "Mixed Creative Party", value: "Up to 20 guests (12 + 8)" },
+  { label: "Studio Rentals", value: "Varies by setup" },
+];
+
+const eventTypes = [
+  "Birthday Parties",
+  "Girls' Night Out",
+  "Date Nights",
+  "Corporate Team Building",
+  "Church Groups",
+  "Family Reunions",
+  "College Organizations",
+  "Sororities & Fraternities",
+  "Baby Showers",
+  "Bridal Showers",
+  "Graduation Parties",
+  "Youth Groups",
+  "Networking Events",
+  "Holiday Parties",
+  "Pop-up Events",
+  "Vendor Events",
+];
 ---
 
-<Layout title="Private Events · Tufted Tales Studio" description="Book Tufted Tales Studio for birthday parties, girls' nights, corporate team building, and celebrations. Starting at $600 for the studio + $65 per person.">
+<Layout title="Private Events · Tufted Tales Studio" description="Host a private rug tufting party, Tale Bears party, mixed creative event, or rent our Columbus, GA studio. Perfect for birthdays, girls' nights, corporate team building, and more.">
   <PageHero
     eyebrow="Private Events"
-    title="Your people. Your rugs."
-    script="Your night."
+    script="Your story."
+    title="Your people. Your celebration."
     scriptLast
-    subtitle="Book the whole studio for birthdays, girls' nights, date nights, corporate team-building, or just a really good excuse to hang out."
+    subtitle="Celebrate birthdays, girls' nights, date nights, corporate team-building events, church outings, family gatherings, and more. Choose a private rug tufting party, a Tale Bears experience, a mixed creative event, or rent the studio for your own private celebration."
   />
 
-  <!-- PRICING BAND -->
-  <section class="pricing-band">
-    <div class="container pricing-grid">
-      <div class="pricing-card">
-        <span class="eyebrow">Studio Buyout</span>
-        <p class="big-price">from $600</p>
-        <p>Starting rate to reserve the studio for your group.</p>
+  <!-- OFFERINGS -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Private Creative Experiences</span>
+        <h2>Four ways to celebrate.</h2>
+        <p class="lede">
+          Whether you're celebrating a birthday, hosting a team-building event, planning a girls' night out, or simply looking for a unique venue — Tufted Tales Studio offers unforgettable private experiences for every occasion.
+        </p>
       </div>
-      <div class="pricing-card">
-        <span class="eyebrow">Per Guest</span>
-        <p class="big-price">+ $65</p>
-        <p>Includes tufting, materials, instruction, and finishing.</p>
-      </div>
-      <div class="pricing-card">
-        <span class="eyebrow">Duration</span>
-        <p class="big-price">~3.5 hrs</p>
-        <p>Setup, guided tufting, finishing, and photos.</p>
+
+      <div class="off-grid">
+        {offerings.map((o) => (
+          <article class={`off-card ${o.tone}`}>
+            <span class="chip">{o.tag}</span>
+            <h3>{o.title}</h3>
+            <p class="tagline">{o.tagline}</p>
+            <div class="off-price-block">
+              <p class="off-price">{o.price}</p>
+              <p class="off-price-note">{o.priceNote}</p>
+            </div>
+            <ul class="off-details">
+              {o.details.map((d) => <li>{d}</li>)}
+            </ul>
+            <a href="#inquire" class="btn off-cta">{o.button}</a>
+          </article>
+        ))}
       </div>
     </div>
-    <p class="fineprint">Group discounts available for parties of 10+ · Minimum age: 14 · Ask about travel to your venue</p>
   </section>
 
-  <!-- INQUIRY FORM + PERFECT FOR SIDEBAR -->
+  <!-- CAPACITY + INCLUDED BAND -->
+  <section class="details-band">
+    <div class="container details-grid">
+      <div>
+        <span class="eyebrow">Capacity</span>
+        <h2>Sized for your group.</h2>
+        <ul class="cap-list">
+          {capacities.map((c) => (
+            <li>
+              <span class="cap-label">{c.label}</span>
+              <span class="cap-value">{c.value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">What's Included</span>
+        <h2>Everything you need.</h2>
+        <ul class="incl-list">
+          {included.map((i) => <li>{i}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM + EVENT TYPES SIDEBAR -->
   <section class="form-section" id="inquire">
     <div class="container form-grid">
       <div class="form-col">
@@ -42,152 +180,131 @@ import PageHero from "../components/PageHero.astro";
           <span class="eyebrow">Private Event Inquiry</span>
           <h2>Tell us about your event.</h2>
           <p class="lede">
-            We'll follow up within 1 business day with availability, a custom quote,
-            and next steps.
+            We'll follow up within 1 business day with availability, a custom quote, and next steps.
           </p>
         </div>
 
         <form
-        name="private-events"
-        method="POST"
-        action="/api/submit"
-        data-tts-form
-        data-success-title="Inquiry sent!"
-        data-success-message="Thanks — we'll follow up within 1 business day with availability, a custom quote, and next steps."
-        enctype="multipart/form-data"
-        class="inquiry-form"
-      >
-        <input type="hidden" name="form-name" value="private-events" />
-        <p class="visually-hidden">
-          <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-        </p>
+          name="private-events"
+          method="POST"
+          action="/api/submit"
+          data-tts-form
+          data-success-title="Inquiry sent!"
+          data-success-message="Thanks — we'll follow up within 1 business day with availability, a custom quote, and next steps."
+          enctype="multipart/form-data"
+          class="inquiry-form"
+        >
+          <input type="hidden" name="form-name" value="private-events" />
+          <p class="visually-hidden">
+            <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="name">Your name *</label>
-            <input id="name" name="name" type="text" required autocomplete="name" />
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
           </div>
-          <div class="form-field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required autocomplete="email" />
-          </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          <div class="form-row">
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="form-field">
+              <label for="event-type">Event type *</label>
+              <select id="event-type" name="event-type" required>
+                <option value="">Select one…</option>
+                <option>Rug Tufting Party</option>
+                <option>Mixed Creative Party (Rug + Tale Bears)</option>
+                <option>Tale Bears Party</option>
+                <option>Studio Rental</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="event-date">Preferred date *</label>
+              <input id="event-date" name="event-date" type="date" required />
+            </div>
+            <div class="form-field">
+              <label for="event-time">Preferred time</label>
+              <select id="event-time" name="event-time">
+                <option value="">Flexible</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="guests">Number of guests *</label>
+              <input id="guests" name="guests" type="number" min="1" max="40" required />
+              <p class="form-hint">Rug tufting parties require a 12-guest minimum.</p>
+            </div>
+            <div class="form-field">
+              <label for="age-range">Age range of guests</label>
+              <select id="age-range" name="age-range">
+                <option value="">Select one…</option>
+                <option>Kids &amp; families</option>
+                <option>Teens (14–17)</option>
+                <option>Adults (18+)</option>
+                <option>Mixed</option>
+              </select>
+            </div>
+          </div>
+
           <div class="form-field">
-            <label for="event-type">Event type *</label>
-            <select id="event-type" name="event-type" required>
+            <label for="theme">Celebration theme or vibe</label>
+            <input id="theme" name="theme" type="text" placeholder="e.g. Y2K, coastal, dark academia, none in particular" />
+          </div>
+
+          <div class="form-field">
+            <label for="artwork">Logo, monogram, or artwork upload</label>
+            <input id="artwork" name="artwork" type="file" accept="image/*,.pdf,.svg" />
+            <p class="form-hint">Optional. Great for corporate events or themed parties.</p>
+          </div>
+
+          <div class="form-field">
+            <label for="details">Event details</label>
+            <textarea id="details" name="details" placeholder="Anything else we should know? Food/drink plans, must-have designs, special guests, etc."></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="referral">How did you hear about us?</label>
+            <select id="referral" name="referral">
               <option value="">Select one…</option>
-              <option>Birthday</option>
-              <option>Girls' Night</option>
-              <option>Bridal / Bachelorette</option>
-              <option>Corporate / Team Building</option>
-              <option>Family Gathering</option>
+              <option>Instagram</option>
+              <option>TikTok</option>
+              <option>Facebook</option>
+              <option>YouTube</option>
+              <option>Google search</option>
+              <option>A friend</option>
+              <option>Drove by the studio</option>
               <option>Other</option>
             </select>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="event-date">Preferred date *</label>
-            <input id="event-date" name="event-date" type="date" required />
-          </div>
-          <div class="form-field">
-            <label for="event-time">Preferred time</label>
-            <select id="event-time" name="event-time">
-              <option value="">Flexible</option>
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="guests">Number of guests *</label>
-            <input id="guests" name="guests" type="number" min="1" max="40" required />
-            <p class="form-hint">Minimum age is 14 for all guests.</p>
-          </div>
-          <div class="form-field">
-            <label for="age-range">Age range of guests</label>
-            <select id="age-range" name="age-range">
-              <option value="">Select one…</option>
-              <option>Teens (14–17)</option>
-              <option>Adults (18+)</option>
-              <option>Mixed</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="travel">Where would you like to host?</label>
-          <select id="travel" name="travel">
-            <option>At the studio (Columbus, GA)</option>
-            <option>Off-site (please tell us where in the details field)</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label for="theme">Celebration theme or vibe</label>
-          <input id="theme" name="theme" type="text" placeholder="e.g. Y2K, coastal, dark academia, none in particular" />
-        </div>
-
-        <div class="form-field">
-          <label for="artwork">Logo, monogram, or artwork upload</label>
-          <input id="artwork" name="artwork" type="file" accept="image/*,.pdf,.svg" />
-          <p class="form-hint">Optional. Great for corporate events or themed parties.</p>
-        </div>
-
-        <div class="form-field">
-          <label for="details">Event details</label>
-          <textarea id="details" name="details" placeholder="Anything else we should know? Food/drink plans, must-have designs, special guests, etc."></textarea>
-        </div>
-
-        <div class="form-field">
-          <label for="referral">How did you hear about us?</label>
-          <select id="referral" name="referral">
-            <option value="">Select one…</option>
-            <option>Instagram</option>
-            <option>TikTok</option>
-            <option>Facebook</option>
-            <option>YouTube</option>
-            <option>Google search</option>
-            <option>A friend</option>
-            <option>Drove by the studio</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary form-submit">Send Inquiry</button>
-      </form>
+          <button type="submit" class="btn btn-primary form-submit">Send Inquiry</button>
+        </form>
       </div>
 
       <aside class="perfect-for-col">
         <div class="perfect-for-card">
-          <span class="eyebrow">Perfect For</span>
-          <h3>Whatever you're celebrating.</h3>
+          <span class="eyebrow">Event Types</span>
+          <h3>We've hosted just about everything.</h3>
           <ul class="pf-list">
-            <li>Birthday Parties</li>
-            <li>Bridal &amp; Bachelorette</li>
-            <li>Girls' Night Out</li>
-            <li>Date Nights</li>
-            <li>Family Fun</li>
-            <li>Corporate Team Building</li>
-            <li>College Groups</li>
-            <li>Baby Showers</li>
-            <li>Retirement Parties</li>
-            <li>Anniversaries</li>
-            <li>Milestone Celebrations</li>
-            <li>Just Because</li>
+            {eventTypes.map((t) => <li>{t}</li>)}
           </ul>
-          <p class="pf-footer">Don't see yours? Tell us in the form — we've hosted just about everything.</p>
+          <p class="pf-footer">Don't see yours? Tell us in the form.</p>
         </div>
       </aside>
     </div>
@@ -195,46 +312,77 @@ import PageHero from "../components/PageHero.astro";
 </Layout>
 
 <style>
-  .pricing-band {
-    background: var(--teal);
-    color: var(--cream);
-    padding: clamp(48px, 6vw, 72px) 0;
-  }
-  .pricing-band .eyebrow { color: var(--sage); }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-  @media (max-width: 720px) {
-    .pricing-grid { grid-template-columns: 1fr; }
-  }
-  .pricing-card p { margin: 0; }
-  .big-price {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 4.4rem);
-    color: var(--cream);
-    line-height: 1;
-    margin: 8px 0 12px !important;
-  }
-  .pricing-card p:last-child {
-    opacity: 0.85;
-    font-size: 0.95rem;
-  }
-  .fineprint {
-    text-align: center;
-    max-width: var(--container);
-    margin: 40px auto 0;
-    padding: 0 var(--pad-x);
-    font-size: 0.9rem;
-    opacity: 0.85;
-  }
-
-  .section-head { max-width: 660px; margin-bottom: 40px; }
+  .section-head { max-width: 720px; margin-bottom: 40px; }
   .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
-  .lede { font-size: 1.05rem; color: var(--ink-soft); }
+  .lede { font-size: 1.05rem; color: var(--ink-soft); margin: 0; }
 
-  /* FORM + PERFECT FOR SIDEBAR */
+  /* OFFERINGS */
+  .off-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(20px, 2.5vw, 28px);
+    align-items: stretch;
+  }
+  @media (max-width: 800px) { .off-grid { grid-template-columns: 1fr; } }
+
+  .off-card {
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .off-card.teal { background: var(--teal); color: var(--cream); }
+  .off-card.cream { background: var(--cream); color: var(--teal-ink); }
+  .off-card.terracotta { background: var(--terracotta); color: var(--cream); }
+  .off-card.olive { background: var(--olive-dark); color: var(--cream); }
+
+  .off-card h3 { color: currentColor; font-size: 1.5rem; margin: 6px 0 0; line-height: 1.15; }
+  .off-card .chip { align-self: flex-start; }
+  .off-card.teal .chip { background: rgba(238, 214, 191, 0.15); color: var(--cream); }
+  .off-card.cream .chip { background: var(--terracotta); color: var(--cream); }
+  .off-card.terracotta .chip, .off-card.olive .chip { background: rgba(238, 214, 191, 0.18); color: var(--cream); }
+
+  .tagline { margin: 0; font-size: 0.95rem; opacity: 0.92; line-height: 1.45; }
+  .off-price-block { padding: 12px 14px; background: rgba(0, 0, 0, 0.12); border-radius: var(--radius); }
+  .off-card.cream .off-price-block { background: rgba(6, 73, 70, 0.08); }
+  .off-price { font-family: var(--font-block); font-size: 1.25rem; margin: 0; letter-spacing: 0.04em; }
+  .off-card.teal .off-price, .off-card.terracotta .off-price, .off-card.olive .off-price { color: var(--cream); }
+  .off-card.cream .off-price { color: var(--terracotta-deep); }
+  .off-price-note { margin: 4px 0 0; font-size: 0.82rem; opacity: 0.85; }
+
+  .off-details { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem; line-height: 1.4; }
+  .off-details li { padding-left: 20px; position: relative; }
+  .off-details li::before { content: "→"; position: absolute; left: 0; top: 0; font-weight: 700; }
+  .off-card.teal .off-details li::before, .off-card.terracotta .off-details li::before, .off-card.olive .off-details li::before { color: var(--sage); }
+  .off-card.cream .off-details li::before { color: var(--terracotta); }
+
+  .off-cta { margin-top: auto; align-self: flex-start; }
+  .off-card.teal .off-cta { background: var(--cream); color: var(--teal-ink); border-color: var(--cream); }
+  .off-card.teal .off-cta:hover { background: #fff; color: var(--teal-ink); }
+  .off-card.cream .off-cta { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+  .off-card.cream .off-cta:hover { background: var(--terracotta-deep); }
+  .off-card.terracotta .off-cta { background: var(--cream); color: var(--terracotta-deep); border-color: var(--cream); }
+  .off-card.terracotta .off-cta:hover { background: #fff; }
+  .off-card.olive .off-cta { background: var(--cream); color: var(--olive-dark); border-color: var(--cream); }
+  .off-card.olive .off-cta:hover { background: #fff; }
+
+  /* DETAILS BAND */
+  .details-band { background: var(--paper); }
+  .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); }
+  @media (max-width: 800px) { .details-grid { grid-template-columns: 1fr; } }
+  .details-grid h2 { font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.15; margin: 8px 0 20px; }
+  .cap-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .cap-list li { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+  .cap-list li:last-child { border-bottom: 0; }
+  .cap-label { font-weight: 700; color: var(--teal-ink); }
+  .cap-value { color: var(--muted); font-family: var(--font-block); font-size: 0.85rem; letter-spacing: 0.1em; }
+
+  .incl-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .incl-list li { padding-left: 26px; position: relative; font-size: 0.98rem; }
+  .incl-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--olive); font-weight: 700; font-size: 1.1rem; line-height: 1.3; }
+
+  /* FORM + EVENT TYPES SIDEBAR */
   .form-section { background: var(--cream); }
   .form-grid {
     display: grid;
@@ -242,9 +390,7 @@ import PageHero from "../components/PageHero.astro";
     gap: clamp(24px, 4vw, 48px);
     align-items: start;
   }
-  @media (max-width: 900px) {
-    .form-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px) { .form-grid { grid-template-columns: 1fr; } }
   .form-col { min-width: 0; }
   .inquiry-form {
     background: #fff;
@@ -256,9 +402,7 @@ import PageHero from "../components/PageHero.astro";
   .visually-hidden { position: absolute; left: -9999px; }
 
   .perfect-for-col { position: sticky; top: 100px; }
-  @media (max-width: 900px) {
-    .perfect-for-col { position: static; }
-  }
+  @media (max-width: 900px) { .perfect-for-col { position: static; } }
   .perfect-for-card {
     background: var(--teal);
     color: var(--cream);
@@ -266,45 +410,10 @@ import PageHero from "../components/PageHero.astro";
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
   }
-  .perfect-for-card .eyebrow {
-    color: var(--sage);
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-  .perfect-for-card h3 {
-    color: var(--cream);
-    font-size: 1.4rem;
-    line-height: 1.15;
-    margin: 0 0 20px;
-  }
-  .pf-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .pf-list li {
-    padding-left: 22px;
-    position: relative;
-    font-size: 0.98rem;
-    line-height: 1.3;
-  }
-  .pf-list li::before {
-    content: "✱";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--terracotta);
-    font-weight: 700;
-  }
-  .pf-footer {
-    margin: 20px 0 0;
-    padding-top: 20px;
-    border-top: 1px solid rgba(238, 214, 191, 0.15);
-    font-size: 0.85rem;
-    opacity: 0.85;
-    font-style: italic;
-  }
+  .perfect-for-card .eyebrow { color: var(--sage); display: inline-block; margin-bottom: 10px; }
+  .perfect-for-card h3 { color: var(--cream); font-size: 1.35rem; line-height: 1.15; margin: 0 0 20px; }
+  .pf-list { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; }
+  .pf-list li { padding-left: 22px; position: relative; font-size: 0.95rem; line-height: 1.3; }
+  .pf-list li::before { content: "✱"; position: absolute; left: 0; top: 0; color: var(--terracotta); font-weight: 700; }
+  .pf-footer { margin: 20px 0 0; padding-top: 20px; border-top: 1px solid rgba(238, 214, 191, 0.15); font-size: 0.85rem; opacity: 0.85; font-style: italic; }
 </style>

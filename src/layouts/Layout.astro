@@ -93,10 +93,14 @@ const {
       function showSuccess(form: HTMLFormElement) {
         const successMessage = form.dataset.successMessage || "Thanks! We got your message and will be in touch soon.";
         const successTitle = form.dataset.successTitle || "You're in!";
+        const paragraphs = successMessage
+          .split(/\n\n+/)
+          .map((p) => `<p class="tts-form-success__body">${escapeHtml(p.trim())}</p>`)
+          .join("");
         form.innerHTML = `
           <div class="tts-form-success">
             <div class="tts-form-success__title">${escapeHtml(successTitle)}</div>
-            <p class="tts-form-success__body">${escapeHtml(successMessage)}</p>
+            ${paragraphs}
           </div>
         `;
       }

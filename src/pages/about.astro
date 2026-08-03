@@ -1,32 +1,57 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
+
+const offers = [
+  {
+    title: "Rug Tufting Workshops",
+    body: "Create your own custom rug using our beginner-friendly process and curated design library. Whether you choose our Signature Tuft Experience or Complete Rug Maker Experience, our instructors will guide you every step of the way.",
+    href: "/workshops",
+    cta: "See Workshops",
+  },
+  {
+    title: "Tale Bears Experience",
+    body: "Create a one-of-a-kind Tale Bear using our signature paint-pour technique. Choose your bear, select your colors, and design a keepsake that's uniquely yours.",
+    href: "/workshops#book",
+    cta: "Book Tale Bears",
+  },
+  {
+    title: "Private Parties & Events",
+    body: "Celebrate birthdays, girls' nights, date nights, team-building events, church outings, family gatherings, and more with a private creative experience designed just for your group.",
+    href: "/private-events",
+    cta: "Host an Event",
+  },
+  {
+    title: "Studio Rentals",
+    body: "Looking for a modern, creative venue? Rent the front studio, back studio, or the entire space for your next private event.",
+    href: "/private-events#inquire",
+    cta: "Rent the Studio",
+  },
+];
 ---
 
-<Layout title="About · Tufted Tales Studio" description="Tufted Tales Studio is a creative-experience rug tufting studio in Columbus, Georgia. Learn about our story, our name, and the people behind it.">
+<Layout title="About · Tufted Tales Studio" description="Tufted Tales Studio is a creative-experience rug tufting studio in Columbus, Georgia. Learn about our story, our mission, and the founder behind it.">
   <PageHero
-    eyebrow="About Us"
-    script="Every story"
-    title="begins here."
-    subtitle="Tufted Tales Studio is a hands-on rug tufting studio in Columbus, Georgia, serving the Chattahoochee Valley."
+    eyebrow="About"
+    script="Where creativity meets"
+    title="Community."
+    subtitle="Tufted Tales Studio is more than a place to make rugs — it's a creative space where people come together to celebrate, connect, and create something meaningful. Whether you're joining a rug tufting workshop, creating a Tale Bear, celebrating a special occasion, or hosting a private event, every experience is designed to help you make memories you'll take home long after your project is finished."
   />
 
-  <!-- STORY -->
+  <!-- OUR STORY -->
   <section>
     <div class="container about-grid">
       <div class="about-copy">
         <span class="eyebrow">Our Story</span>
-        <h2>Where creativity meets craft.</h2>
+        <h2>Built for creating — and connecting.</h2>
         <p>
-          We believe creativity is about more than making something beautiful — it's about creating memories,
-          expressing yourself, and leaving with something that tells your story.
+          Tufted Tales Studio was created to bring a unique, hands-on creative experience to Columbus, Georgia. We wanted to build a place where anyone — regardless of artistic experience — could step into a welcoming environment, learn something new, and leave with something they created themselves.
         </p>
         <p>
-          What started as a love for tufting grew into something bigger: a space where people can gather,
-          try something new, and turn their memories, favorite colors, inside jokes, and personal style
-          into something they can actually take home. Whether you're planning a visit with friends,
-          celebrating a special occasion, or experiencing tufting for the first time — the studio was
-          designed to be creative, welcoming, and memorable.
+          Our studio is built around more than creativity. It's built around connection. Friends laugh together, families create together, couples make memories together, and every guest leaves with a story worth telling.
+        </p>
+        <p>
+          At Tufted Tales Studio, we believe every handmade creation tells a story — and we're excited to help you create yours.
         </p>
       </div>
       <div class="visual">
@@ -35,22 +60,32 @@ import PageHero from "../components/PageHero.astro";
     </div>
   </section>
 
-  <!-- NAME -->
-  <section class="name-section">
-    <div class="container name-grid">
-      <div>
-        <span class="eyebrow">The Name</span>
-        <h2>Every rug tells a tale.</h2>
+  <!-- MISSION BAND -->
+  <section class="mission-band">
+    <div class="container center">
+      <span class="eyebrow">Our Mission</span>
+      <h2>Every guest leaves with more than a project.</h2>
+      <p>
+        Our mission is to inspire creativity, encourage connection, and provide unforgettable experiences where every guest can create something meaningful with their own hands. We believe the best memories are made together, and every visit to Tufted Tales Studio should end with a handmade creation and a story worth sharing.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Four creative experiences under one roof.</h2>
       </div>
-      <div class="name-halves">
-        <div class="half">
-          <p class="script-word">Tufted.</p>
-          <p>Speaks to the craft itself — the texture, the yarn, and the process of creating something by hand.</p>
-        </div>
-        <div class="half">
-          <p class="script-word">Tales.</p>
-          <p>Reflects the meaning behind each piece. No two rugs are exactly alike, and no two stories are either.</p>
-        </div>
+      <div class="offer-grid">
+        {offers.map((o) => (
+          <article class="offer-card">
+            <h3>{o.title}</h3>
+            <p>{o.body}</p>
+            <a href={o.href} class="offer-link">{o.cta} →</a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -65,21 +100,29 @@ import PageHero from "../components/PageHero.astro";
         <span class="eyebrow">Meet the Founder</span>
         <h2>Taiylor Williams.</h2>
         <p>
-          Tufted Tales Studio is the vision of founder Taiylor Williams, born from a love of the craft and
-          a belief that creativity has the power to bring people together. The studio is rooted in the
-          spirit of <strong>Good Shepherd Creations</strong> — shaped by the idea that what you make with
-          your hands should feel personal from start to finish.
+          When Taiylor Williams imagined Tufted Tales Studio, she wasn't trying to build just another art studio.
+        </p>
+        <ul class="studio-list">
+          <li><span>A dance studio</span> teaches dance.</li>
+          <li><span>A pottery studio</span> teaches pottery.</li>
+          <li><span>A paint studio</span> teaches painting.</li>
+          <li><span>A rug studio</span> teaches rug tufting.</li>
+        </ul>
+        <p class="founder-lede">
+          <strong>Tufted Tales Studio was designed differently.</strong>
+          It's a creative experience studio where every project tells a story.
         </p>
         <p>
-          That connection is part of what gives Tufted Tales Studio its heart: creativity, confidence,
-          community, and the belief that every guest leaves with more than just a rug — they leave with
-          a story of their own.
+          Whether you're creating your first custom rug, designing a Tale Bear, or celebrating a special occasion with family and friends, every experience is built around creativity, connection, and making memories that last long after you leave the studio.
+        </p>
+        <p>
+          Because at Tufted Tales Studio, you don't just make something with your hands — you create a story that's uniquely yours.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- VALUES / TAGLINE BAND -->
+  <!-- TAGLINE CTA BAND -->
   <section class="values">
     <div class="container center">
       <span class="eyebrow">Our Tagline</span>
@@ -87,8 +130,7 @@ import PageHero from "../components/PageHero.astro";
         <span class="script">Where tuft happens.</span>
       </h2>
       <p>
-        Playful, memorable, and true to what the studio is all about — a place where ideas, yarn,
-        laughter, and stories come together to create something you can live with and love.
+        Playful, memorable, and true to what the studio is all about — a place where ideas, yarn, laughter, and stories come together to create something you can live with and love.
       </p>
       <a href="/waitlist" class="btn btn-primary">Join the Waitlist</a>
     </div>
@@ -129,38 +171,75 @@ import PageHero from "../components/PageHero.astro";
     object-position: center top;
   }
 
-  .name-section {
+  /* MISSION BAND */
+  .mission-band {
     background: var(--cream);
+    padding: clamp(72px, 9vw, 120px) 0;
   }
-  .name-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 48px;
-    align-items: flex-start;
+  .mission-band .center { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .mission-band h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.1;
+    margin: 12px 0 20px;
+    max-width: 22ch;
   }
-  @media (max-width: 800px) { .name-grid { grid-template-columns: 1fr; } }
-  .name-grid h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.05;
+  .mission-band p {
+    max-width: 60ch;
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: 1.05rem;
   }
-  .name-halves {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  @media (max-width: 640px) { .name-halves { grid-template-columns: 1fr; } }
-  .half { padding: 24px; background: #fff; border-radius: var(--radius-lg); }
-  .script-word {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    color: var(--terracotta);
-    margin: 0 0 8px;
-    line-height: 1;
-  }
-  .half p:last-child { color: var(--ink-soft); margin: 0; }
 
+  /* WHAT WE OFFER */
+  .section-head { max-width: 720px; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; }
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(20px, 2.5vw, 28px);
+  }
+  @media (max-width: 720px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .offer-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .offer-card h3 { color: var(--teal-ink); font-size: 1.3rem; margin: 0; }
+  .offer-card p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+  .offer-link { margin-top: auto; color: var(--terracotta); font-weight: 700; font-size: 0.95rem; }
+  .offer-link:hover { color: var(--terracotta-deep); }
+
+  /* FOUNDER */
   .founder { background: var(--paper); }
+  .studio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--ink-soft);
+  }
+  .studio-list li { padding: 4px 0; font-size: 1rem; }
+  .studio-list span { color: var(--teal-ink); font-weight: 700; }
+  .founder-lede {
+    background: var(--cream);
+    padding: 16px 20px;
+    border-left: 4px solid var(--terracotta);
+    border-radius: var(--radius);
+    color: var(--teal-ink) !important;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+  .founder-lede strong { display: block; margin-bottom: 4px; color: var(--teal); }
 
+  /* TAGLINE CTA */
   .values {
     background: var(--teal);
     color: var(--cream);

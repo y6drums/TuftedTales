@@ -14,25 +14,20 @@ const items = [
   { src: "/photos/tufting-cherry-frame.jpg", alt: "Cherry rug being tufted on the frame" },
   { src: "/photos/tufting-hello-kitty.jpg", alt: "Hello Kitty rug in progress on the tufting frame" },
   { src: "/photos/tufting-hands-closeup.jpg", alt: "Close-up of hands using the tufting gun" },
-  { src: "/photos/hands-tufting-closeup.jpg", alt: "Close-up of hands tufting a rug" },
-  { src: "/photos/studio-session-full.jpg", alt: "Full studio tufting session in action" },
   { src: "/photos/rug-anime-face.jpg", alt: "Custom anime-style face rug" },
   { src: "/photos/rug-playstation.jpg", alt: "Custom PlayStation-inspired rug" },
   { src: "/photos/rug-flower.jpg", alt: "Custom flower rug" },
   { src: "/photos/tufting-sunset-rug.jpg", alt: "Custom sunset landscape rug" },
   { src: "/photos/owner-custom-rug.jpg", alt: "Custom rug commission" },
-  { src: "/photos/studio-interior.jpg", alt: "Inside the Tufted Tales Studio" },
-  { src: "/photos/tufting-studio-rugs.jpg", alt: "Rugs on display in the studio" },
 ];
 ---
 
-<Layout title="Gallery · Tufted Tales Studio" description="See tufted rugs made at Tufted Tales Studio — workshop favorites and custom commissions.">
+<Layout title="Gallery · Tufted Tales Studio" description="See rugs, Tale Bears, and private-party moments from Tufted Tales Studio in Columbus, GA.">
   <PageHero
     eyebrow="Gallery"
+    script="Memories included."
     title="Made here."
-    script="Loved forever."
-    scriptLast
-    subtitle="A growing collection of rugs made at the studio."
+    subtitle="Every visit to Tufted Tales Studio tells a story. Browse moments from our rug tufting workshops, Tale Bears experiences, private parties, and custom creations. Every piece is handmade, every visit is unique, and every guest leaves with a story worth sharing."
   />
 
   <section class="gallery">
@@ -43,6 +38,20 @@ const items = [
             <img src={it.src} alt={it.alt} loading="lazy" />
           </figure>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container center">
+      <span class="eyebrow">Ready to Create?</span>
+      <h2>Ready to create your own story?</h2>
+      <p>
+        Whether you're planning a date night, birthday celebration, girls' night out, private event, or simply looking for a fun creative experience, we'd love to welcome you to Tufted Tales Studio.
+      </p>
+      <div class="cta-row">
+        <a href="/workshops#book" class="btn btn-primary">Book Your Experience</a>
       </div>
     </div>
   </section>
@@ -75,4 +84,17 @@ const items = [
     object-fit: cover;
     display: block;
   }
+
+  .cta-band {
+    background: var(--teal);
+    color: var(--cream);
+    padding: clamp(72px, 10vw, 120px) 0;
+  }
+  .cta-band .eyebrow { color: var(--sage); }
+  .cta-band .center { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cta-band h2 { color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin: 12px 0 20px; }
+  .cta-band p { max-width: 60ch; opacity: 0.9; margin: 0 0 28px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn-outline-cream { color: var(--cream); border-color: rgba(238, 214, 191, 0.5); background: transparent; }
+  .btn-outline-cream:hover { background: var(--cream); color: var(--teal-ink); border-color: var(--cream); }
 </style>

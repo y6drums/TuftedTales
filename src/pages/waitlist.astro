@@ -2,23 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Join the Waitlist · Tufted Tales Studio" description="Be first through the door. Join the Tufted Tales Studio waitlist for early access to bookings, launch events, and a first-timer discount.">
+<Layout title="Join the Waitlist · Tufted Tales Studio" description="Be first through the door. Join the Tufted Tales Studio VIP waitlist for exclusive access to workshops, private events, Tale Bears, studio rentals, special offers, and grand opening announcements.">
   <section class="hero">
     <div class="container hero-grid">
       <div class="copy">
         <span class="eyebrow">Opening September 2026</span>
         <h1>
-          <span class="script">Be first</span>
+          <span class="script">Be First</span>
           <span class="block">through the door.</span>
         </h1>
         <p class="lede">
-          Join the waitlist to get:
+          Join the Tufted Tales Studio VIP waitlist for exclusive access to:
         </p>
         <ul class="perks">
-          <li><span>Early access</span> — book workshops before public opening</li>
-          <li><span>A first-timer discount</span> — 15% off your first workshop</li>
-          <li><span>Launch event invites</span> — grand opening, previews, and more</li>
-          <li><span>No spam</span> — just the good stuff, promise</li>
+          <li><span>Workshops</span> — Signature Tuft, Complete Rug Maker, and Tale Bears</li>
+          <li><span>Private events</span> — rug parties, mixed creative parties, and Tale Bears parties</li>
+          <li><span>Studio rentals</span> — first look at availability</li>
+          <li><span>Special offers</span> — early-bird pricing and launch promotions</li>
+          <li><span>Grand opening announcements</span> — dates, previews, and more</li>
         </ul>
       </div>
 
@@ -29,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
           action="/api/submit"
           data-tts-form
           data-success-title="You're on the list!"
-          data-success-message="We'll be in touch as we get closer to opening. Thanks for being here."
+          data-success-message={"Thank you for joining the Tufted Tales Studio VIP Waitlist.\n\nWe'll keep you updated on our grand opening, exclusive offers, workshop availability, private events, and exciting new experiences.\n\nWe can't wait to create with you!"}
           class="wl-form"
         >
           <input type="hidden" name="form-name" value="waitlist" />
@@ -53,10 +54,14 @@ import Layout from "../layouts/Layout.astro";
 
           <fieldset class="checkbox-group">
             <legend>What are you interested in? <span class="opt">(optional)</span></legend>
-            <label class="checkbox"><input type="checkbox" name="interest" value="signature-workshop" /> Signature Workshop ($75)</label>
-            <label class="checkbox"><input type="checkbox" name="interest" value="custom-workshop" /> Custom Workshop ($85)</label>
-            <label class="checkbox"><input type="checkbox" name="interest" value="private-event" /> Private Event / Party</label>
-            <label class="checkbox"><input type="checkbox" name="interest" value="custom-rug" /> Custom Rug Commission</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Signature Tuft Experience ($85)" /> Signature Tuft Experience ($85)</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Complete Rug Maker Experience ($99)" /> Complete Rug Maker Experience ($99)</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Tale Bears Experience" /> Tale Bears Experience</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Private Rug Tufting Party" /> Private Rug Tufting Party</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Mixed Creative Party (Rug Tufting + Tale Bears)" /> Mixed Creative Party (Rug Tufting + Tale Bears)</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Tale Bears Party" /> Tale Bears Party</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Studio Rental" /> Studio Rental</label>
+            <label class="checkbox"><input type="checkbox" name="interest" value="Custom Rug Commission" /> Custom Rug Commission</label>
           </fieldset>
 
           <div class="form-field">
