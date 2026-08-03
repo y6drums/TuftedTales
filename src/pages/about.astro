@@ -40,7 +40,7 @@ const offers = [
 
   <!-- OUR STORY -->
   <section>
-    <div class="container about-grid">
+    <div class="container story-shell">
       <div class="about-copy">
         <span class="eyebrow">Our Story</span>
         <h2>Built for creating — and connecting.</h2>
@@ -53,9 +53,6 @@ const offers = [
         <p>
           At Tufted Tales Studio, we believe every handmade creation tells a story — and we're excited to help you create yours.
         </p>
-      </div>
-      <div class="visual">
-        <img src="/photos/studio-session-full.jpg" alt="A tufting session in progress at Tufted Tales Studio" class="about-photo" />
       </div>
     </div>
   </section>
@@ -148,6 +145,13 @@ const offers = [
   @media (max-width: 800px) {
     .about-grid, .founder-grid { grid-template-columns: 1fr; }
   }
+  .story-shell {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .story-shell .eyebrow { display: inline-block; margin-bottom: 12px; }
+  .story-shell .about-copy p { margin-left: auto; margin-right: auto; }
 
   .about-copy h2, .founder-copy h2 {
     font-size: clamp(2rem, 4vw, 3rem);
