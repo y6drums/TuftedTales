@@ -11,17 +11,15 @@ const experiences = [
     priceUnit: "per person",
     tone: "teal",
     description:
-      "Perfect for first-time tufters or anyone who wants to focus on creating their rug while our team professionally completes the finishing process. You'll enjoy the fun of tufting without having to worry about the technical finishing steps.",
+      "Our most popular workshop. In 3 to 3.5 hours you'll choose a design from our library and tuft it with an instructor beside you. We professionally shave, trim, and finish your piece and have it ready for pickup in 24–48 hours. Great for first-timers, date nights, and small groups.",
     includes: [
-      "3–3.5 hour instructor-led workshop",
+      "3–3.5 hrs · $85 / person",
+      "All materials + 20+ yarn colors included",
       "Choose from our curated design library",
-      "All materials, tools, and premium yarn included",
-      "20+ yarn colors to choose from",
-      "Professional shaving, trimming, gluing, and backing completed by our team",
-      "Finished rug ready for pickup within 24–48 hours",
+      "We finish it — ready for pickup in 24–48 hrs",
     ],
     bestFor:
-      "Guests who want a fun, stress-free tufting experience with a professionally finished rug.",
+      "First-timers, date nights, and small groups who want to tuft without worrying about the finishing steps.",
     buttonText: "Book Signature Tuft Experience",
   },
   {
@@ -32,17 +30,15 @@ const experiences = [
     priceUnit: "per person",
     tone: "cream",
     description:
-      "Want to learn the complete rug-making process? In this hands-on workshop, you'll not only tuft your rug but also learn how to professionally shave, trim, glue, and back it yourself. You'll leave with new skills — and your finished rug.",
+      "The full process, start to finish. Over 4 to 4.5 hours you'll tuft your design, then learn to shave, trim, glue, and back it yourself — and take your finished rug home the same day. Best for anyone who wants to learn the whole craft.",
     includes: [
-      "4–4.5 hour instructor-led workshop",
-      "Choose from our curated design library",
-      "All materials, tools, and premium yarn included",
-      "20+ yarn colors to choose from",
-      "Learn professional shaving, trimming, gluing, and backing techniques",
-      "Take your completed rug home the same day",
+      "4–4.5 hrs · $99 / person",
+      "All materials + 20+ yarn colors included",
+      "Learn shaving, trimming, gluing, and backing",
+      "Finish it yourself, take home same day",
     ],
     bestFor:
-      "Guests who want the full rug-making experience and the confidence to finish their own projects.",
+      "Anyone who wants to learn the whole craft and take their finished rug home the same day.",
     buttonText: "Book Complete Rug Maker Experience",
   },
   {
@@ -53,15 +49,15 @@ const experiences = [
     priceUnit: "",
     tone: "terracotta",
     description:
-      "Create a one-of-a-kind Tale Bear using our signature paint-pour technique. Choose your bear, select up to three paint colors, and design a keepsake that's uniquely yours.",
+      "Our signature paint-pour. Start with a blank white vinyl bear, pick your colors, and pour — every bear comes out one of a kind. We seal it and have it ready for pickup in 24–48 hours. A quick, fun first visit for kids, dates, and groups.",
     includes: [
-      "Standing 7-inch bear — $34.99, or standing 9-inch bear — $54.99",
-      "Choose up to 3 paint colors",
-      "7\" bear: one complimentary paint refill · 9\" bear: unlimited refills during your session",
-      "Professionally sealed and ready for pickup in 24–48 hours",
+      "7\" bear $34.99 · 9\" bear $54.99",
+      "Up to 3 colors + refills",
+      "Fluid acrylic paint pour · every bear one of a kind",
+      "Sealed and ready for pickup in 24–48 hrs",
     ],
     bestFor:
-      "Families, kids (with adult supervision), date nights, girls' nights, birthday celebrations, college students, creative gifts.",
+      "Kids (with adult supervision), date nights, birthdays, girls' nights, college groups, and creative gifts.",
     buttonText: "Book Tale Bears Experience",
   },
 ];
@@ -134,12 +130,33 @@ const bearSteps = [
 ];
 ---
 
-<Layout title="Workshops · Tufted Tales Studio" description="Choose your creative experience — rug tufting workshops from $85 and Tale Bears from $34.99. Beginner-friendly. Columbus, GA.">
+<Layout
+  title="Rug Tufting Workshops & Tale Bears — Columbus, GA | Tufted Tales Studio"
+  description="Beginner-friendly rug tufting workshops and paint-pour Tale Bears in Columbus, GA. All materials included, no experience needed. Book your session."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": experiences.map((e) => ({
+      "@type": "Product",
+      "name": e.title,
+      "description": e.description,
+      "brand": { "@type": "Brand", "name": "Tufted Tales Studio" },
+      "category": "Creative workshop",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": e.price.replace(/[^0-9.]/g, ""),
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://tuftedtalesstudio.com/workshops#book",
+        "seller": { "@type": "LocalBusiness", "name": "Tufted Tales Studio" }
+      }
+    }))
+  })} />
+
   <PageHero
     eyebrow="Workshops"
-    script="Create & Connect"
-    title="Leave with a story."
-    subtitle="Choose the creative experience that's right for you. Whether you're crafting a custom rug or designing a one-of-a-kind Tale Bear, every visit is hands-on, beginner-friendly, and designed to leave you with something uniquely yours."
+    title="Rug Tufting Workshops & Tale Bears in Columbus, GA"
+    subtitle="Guided, beginner-friendly sessions in our Columbus, GA studio. Choose a design and we'll walk you through every step. All materials and 20+ yarn colors included — no experience needed."
   />
 
   <!-- EXPERIENCE CARDS -->
@@ -211,8 +228,7 @@ const bearSteps = [
         <span class="eyebrow">Book Your Seat</span>
         <h2>Pick a date that works for you.</h2>
         <p class="lede">
-          Live availability from our booking calendar. Booking opens with our September 2026 launch —
-          in the meantime, <a href="/waitlist">join the waitlist</a> for early access.
+          Live availability below — sessions start with our September 2026 grand opening.
         </p>
       </div>
 

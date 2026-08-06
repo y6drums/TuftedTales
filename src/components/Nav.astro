@@ -29,7 +29,7 @@ const path = Astro.url.pathname;
     </nav>
 
     <div class="nav-cta">
-      <a href="/waitlist" class="btn btn-primary btn-sm">Join Waitlist</a>
+      <a href="/workshops#book" class="btn btn-primary btn-sm">Book Now</a>
     </div>
 
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -41,7 +41,7 @@ const path = Astro.url.pathname;
     {links.map((l) => (
       <a href={l.href} class="mobile-link">{l.label}</a>
     ))}
-    <a href="/waitlist" class="btn btn-primary mobile-cta">Join the Waitlist</a>
+    <a href="/workshops#book" class="btn btn-primary mobile-cta">Book Your Experience</a>
   </div>
 </header>
 

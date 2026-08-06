@@ -8,7 +8,11 @@ const groups = [
     items: [
       {
         q: "How much is a workshop?",
-        a: "Signature workshops are $75 per person. Custom workshops are $85 per person. Both are 2.5 hours and include all materials.",
+        a: "The Signature Tuft Experience is $85/person (3–3.5 hrs · we finish it). The Complete Rug Maker Experience is $99/person (4–4.5 hrs · you finish it, take home same day). Tale Bears are $34.99 for a 7\" bear or $54.99 for a 9\" bear. All include materials.",
+      },
+      {
+        q: "What is a Tale Bear?",
+        a: "A Tale Bear is a blank white vinyl bear you make your own with our signature fluid acrylic paint pour. Pick your bear and your colors, pour, and we seal it — ready for pickup in 24–48 hours. 7\" bears are $34.99; 9\" bears are $54.99.",
       },
       {
         q: "What's included?",
@@ -17,6 +21,14 @@ const groups = [
       {
         q: "Do I need any experience?",
         a: "Nope. All workshops are beginner-friendly and led by an instructor from start to finish.",
+      },
+      {
+        q: "Do I need to sign a waiver?",
+        a: "Yes. Because our experiences involve studio tools and materials, every guest (or a parent/guardian for minors) signs a short liability waiver before starting. You can complete it when you book or when you arrive.",
+      },
+      {
+        q: "Can I do a rug and a Tale Bear in the same visit?",
+        a: "No — each experience runs as its own session, so they're booked separately. You're welcome to book a rug workshop and a Tale Bears session on different visits.",
       },
       {
         q: "What's the minimum age?",
@@ -92,6 +104,15 @@ const groups = [
     ],
   },
   {
+    title: "Booking",
+    items: [
+      {
+        q: "How do I book?",
+        a: "Book online through our booking calendar on the Workshops page — sessions start with our September 2026 grand opening. Private events use the inquiry form on the Private Events page.",
+      },
+    ],
+  },
+  {
     title: "Private Events",
     items: [
       {
@@ -99,8 +120,12 @@ const groups = [
         a: "Fill out the inquiry form on our Private Events page. We'll follow up within 1 business day with availability and a custom quote.",
       },
       {
-        q: "How much does it cost?",
-        a: "Private events start at $600 for the studio + $65 per guest. Group discounts available for parties of 10+.",
+        q: "How much does a private event cost?",
+        a: "Private rug tufting parties start at $1,080 for up to 12 guests ($90 per guest). Tale Bears parties and studio rentals are quoted to fit your group — just ask.",
+      },
+      {
+        q: "Do you host date nights, birthdays, and corporate events?",
+        a: "Yes — see our Private Events page. We host birthdays, date nights, bachelorette parties, and corporate team building in Columbus, GA.",
       },
       {
         q: "Can you travel to my venue?",
@@ -111,7 +136,22 @@ const groups = [
 ];
 ---
 
-<Layout title="FAQ & Policies · Tufted Tales Studio" description="Answers to the most common questions about workshops, private events, and custom rugs at Tufted Tales Studio.">
+<Layout
+  title="Rug Tufting FAQ — Tufted Tales Studio, Columbus, GA"
+  description="Answers about rug tufting workshops, Tale Bears, pricing, waivers, and private events at Tufted Tales Studio in Columbus, GA."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": groups.flatMap((g) => g.items.map((it) => ({
+      "@type": "Question",
+      "name": it.q.replace(/<[^>]+>/g, ""),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": it.a.replace(/<[^>]+>/g, "")
+      }
+    })))
+  })} />
   <PageHero
     eyebrow="FAQ &amp; Policies"
     script="Good question."

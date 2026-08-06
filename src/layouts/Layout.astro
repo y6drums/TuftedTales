@@ -32,6 +32,49 @@ const {
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#064946" />
+
+    <!-- LocalBusiness JSON-LD (site-wide) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://tuftedtalesstudio.com/#business",
+      "name": "Tufted Tales Studio",
+      "description": "Rug tufting and Tale Bears studio in Columbus, GA offering hands-on beginner-friendly workshops, private parties, and custom hand-tufted rugs.",
+      "url": "https://tuftedtalesstudio.com/",
+      "telephone": "+1-706-577-1219",
+      "email": "hello@tuftedtalesstudio.com",
+      "image": "https://tuftedtalesstudio.com/brand/tts-wordmark.svg",
+      "logo": "https://tuftedtalesstudio.com/brand/tts-wordmark.svg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7613 Fortson Rd, Suite B",
+        "addressLocality": "Columbus",
+        "addressRegion": "GA",
+        "postalCode": "31808",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.5852,
+        "longitude": -84.9975
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Columbus, GA" },
+        { "@type": "AdministrativeArea", "name": "Chattahoochee Valley" },
+        { "@type": "City", "name": "Phenix City, AL" },
+        { "@type": "City", "name": "Auburn, AL" },
+        { "@type": "City", "name": "LaGrange, GA" },
+        { "@type": "City", "name": "Fortson, GA" },
+        { "@type": "City", "name": "Midland, GA" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/tuftedtalescolumbus",
+        "https://www.tiktok.com/@tuftedtalescolumbus",
+        "https://www.facebook.com/tuftedtalescolumbus",
+        "https://www.youtube.com/@tuftedtalescolumbus"
+      ]
+    })} />
   </head>
   <body>
     <AnnouncementBar />

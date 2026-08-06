@@ -1,18 +1,19 @@
 ---
 ---
 
-<div class="announce">
+<a href="/workshops#book" class="announce">
   <div class="container announce-inner">
     <span class="dot" aria-hidden="true"></span>
     <span>
-      <strong>Now Booking</strong> — Grand Opening September 2026
+      <strong>Now Booking</strong> for our September 2026 grand opening
     </span>
-    <a href="/waitlist" class="announce-cta">Join the Waitlist →</a>
+    <span class="announce-cta">Book Your Experience →</span>
   </div>
-</div>
+</a>
 
 <style>
   .announce {
+    display: block;
     background: var(--teal);
     color: var(--cream);
     font-size: 0.85rem;
@@ -20,7 +21,9 @@
     padding: 10px 0;
     position: relative;
     z-index: 30;
+    text-decoration: none;
   }
+  .announce:hover { color: var(--cream); }
   .announce-inner {
     display: flex;
     align-items: center;
